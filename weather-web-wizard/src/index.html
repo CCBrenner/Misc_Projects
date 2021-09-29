@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Web Wizard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="surround text-center">
+    <header>
+      <h1>Weather Web Wizard</h1>
+      <h6>(This is your current forecast. Have a great day!)</h6>
+    </header>
+    <br/>
+    <section>
+      <h4 id="location"></h4>
+      <h2 id="tempF">&nbsp;&nbsp;<span id="temp-desc1"></span>° F<br/><span id="temp-desc2"></span></h2>
+      <h2 id="tempC">&nbsp;&nbsp;<span id="temp-desc3"></span>° C<br/><span id="temp-desc4"></span></h2>
+      <button id="temp-switch" class="btn shadow-none" onclick="systemSwitch()">(click to switch systems)</button>
+    </section>
+  </div>
+</body>
+</html>

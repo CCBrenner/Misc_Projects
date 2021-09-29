@@ -1,0 +1,37 @@
+body {
+  background-image: url("wiki.png");
+  display: flex;
+  justify-content: space-around;
+}
+#searchResults {
+  list-style: none;
+}
+.text-format {
+  color: black;
+  font-style: none;
+}
+.text-format:hover {
+  color: grey;
+  text-decoration: none;
+}
+.searchResultTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+.section {
+  background-color: rgba(255,255,255,0.65);
+  text-align: center;
+  width: 50%;
+  margin-top: 100px;
+  padding: 10px;
+  border-radius: 4px;
+}
+#searchText {
+  width: 100%;
+}
+
+@media screen and (min-width: 670px) {
+  #searchText {
+    width: 220px;
+  }
+}

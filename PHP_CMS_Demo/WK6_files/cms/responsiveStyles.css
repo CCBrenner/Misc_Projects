@@ -1,0 +1,9 @@
+.flexbox1 {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.flexitem {
+    flex: 1 1 auto;
+    margin: 3px;
+}

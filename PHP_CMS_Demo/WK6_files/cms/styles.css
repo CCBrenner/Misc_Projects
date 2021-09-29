@@ -1,0 +1,70 @@
+body {
+    display: block;
+    background-color: lightseagreen;
+    padding-top: 40px;
+}
+
+table, section, article, nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav {
+    border: 3px solid black;
+    background-color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    color: black;
+}
+
+#recFormTitle {
+    padding-bottom: 8px;
+}
+
+form {
+    border: 3px solid black;
+    background-color: maroon;
+    padding: 24px 12px 12px 12px;
+    border-radius: 5px;
+    color: white;
+}
+
+#subBtn {
+    background-color: lightseagreen;
+    border: 2px solid black;
+}
+
+#tableTitle {
+    font-size: x-large;
+}
+
+#succa {
+    color: black;
+}
+
+p {
+    display: block;
+    color: white;
+}
+
+table {
+    padding: 4px;
+    border: 3px solid black;
+    border-radius: 5px;
+    background-color: gold;
+}
+
+th, td {
+    padding: 5px;
+    border: 3px solid black;
+    background-color: white;
+}
+
+td {
+    text-align: center;
+    color: maroon;
+}
+
+th>small {
+    font-size: 0.6em;
+}

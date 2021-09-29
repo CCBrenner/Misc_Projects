@@ -1,0 +1,52 @@
+body {
+  margin: auto 5% auto 5%;
+  background-color: black;
+}
+.black-and-peach {
+  background-color: black;
+  color: #f55;
+}
+.header-text {
+  font-family: 'Libre Barcode 39 Text';
+}
+.quote-active {
+  font-family: 'Times New Roman';
+  font-style: italic;
+}
+.tweet-active {
+  font-family: 'Times New Roman';
+  font-style: italic;
+  background-color: #0084b4;
+  color: white;
+  font-weight: bold;
+}
+.quote-result {
+  border-width: 5px;
+  border-style: solid;
+  border-color: #66f;
+  border-radius: 5px;
+  width: 80%;
+  margin: 12px auto auto auto;
+  padding: 4px;
+  color: #6f6;
+  font-family: 'Dhurjati';
+}
+.quote {
+  font-size: 20px;
+  margin: auto 5px auto 5px;
+}
+.author {
+  font-size: 15px;
+  font-style: italic;
+  padding: auto 5% auto 5%;
+}
+footer {
+  color: #f55;
+  font-family: 'Dhurjati';
+}
+
+@media screen and (min-width: 760px) {
+  .quote-result {
+    width: 50%;
+  }
+}

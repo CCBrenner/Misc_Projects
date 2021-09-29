@@ -1,0 +1,29 @@
+* {
+  margin: 0px;
+  font-family: arial;
+}
+body, div, ul, h3, h4, picture {
+  text-align: center;
+  display: block;
+  padding: 15px;
+}
+li {
+  text-align: left;
+  padding: 4px 0px;
+}
+#title {
+  background-color: #FFB222;
+}
+img {
+  width: 100%;
+}
+.ulMargin {
+  margin: 30px;
+  background-color: #FFB222;
+}
+.text_center {
+  text-align: center;
+}
+.erased{
+  font-family: Erased-Typewriter;
+}
