@@ -9,8 +9,8 @@
                 --base-background-color: black;
                 --base-color: black;
                 --menu-color: white;
-                --sidebar-width: 20vw;
-                --main-content-width: 80vw;
+                --sidebar-width: 240px;
+                --main-content-width: 95%;
             }
             * {
                 margin: 0px;
@@ -46,7 +46,8 @@
             .home-icon {
                 font-size: 1.4em;
                 padding-left: 15px;
-                color:var(--menu-color);
+                width: 150px;
+                color: var(--menu-color);
 
                 flex-grow: 1;
             }
@@ -96,7 +97,7 @@
             }
             .sidebar-button {
                 width: var(--sidebar-width);
-                padding: 20px 0px 20px 20px;
+                padding: 20px 0px 20px 40px;
                 font-size: 1.05em;
 
                 display: flex;
@@ -210,8 +211,8 @@
             }
             .image-input {
                 /* for Google image in input element */
-                width: 3vw;
-                height: 5vh;
+                width: 40px;
+                height: 40px;
             }
             .footer {
                 height: 3vh;
@@ -390,7 +391,6 @@
                     <div class="form">
                         <p>Mechanic component: image</p>
                         <input type="image" src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg" class="image-input">
-                        <p><i>(This image's width and hight are defined by a % of the viewport; when the viewport changes size so does the image)</i></p>
                     </div>
                     <div class="form">
                         <p>Mechanic component: month</p>
