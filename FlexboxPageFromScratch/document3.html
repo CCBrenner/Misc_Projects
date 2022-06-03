@@ -5,30 +5,74 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
         <style>
+            :root {
+                --base-background-color: black;
+                --base-color: black;
+                --menu-color: white;
+            }
             * {
-                margin: 3px;
-                padding: 5px;
+                margin: 0px;
+                padding: 0px;
                 text-align: center;
                 font-family: monospace;
             }
-            html, body, .header, .flexbox-1, .flexbox-2, .flexbox-3, .flexbox-4, .flexbox-5, nav, .sidebar {
-                margin: 0px;
-                padding: 0px;
+            html {
+                background-color: var(--base-background-color);
+                color: var(--base-color);
+            }
+            body {
+                background-color: white;
+            }
+            a {
+                text-decoration: none;
+                color: default;
             }
             nav {
                 background-color: darkblue;
-                width: 100vw;
-                height: 20px;
+                color: var(--menu-color);
+                /* position: absolute;
+                z-index: 1;
+                left: 0px;
+                right: 0px; */
+
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .home-icon {
+                font-size: 1.4em;
+                padding-left: 15px;
+                color:var(--menu-color);
+
+                flex-grow: 1;
+            }
+            .nav-menu-items {
+                font-size: 1.05em;
+
+                flex-grow: 6;
 
                 display: flex;
                 flex-flow: row nowrap;
                 justify-content: center;
-                align-content: center;
+                align-items: center;
             }
-            nav > * {
-                width: 75px;
-                height: 50px;
-                color: white;
+            .nav-menu-button {
+                padding: 12px 25px;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            .nav-menu-button:hover {
+                background-color:aqua;
+                color:black;
+            }
+            .nav-settings {
+                padding-right: 15px;
+
+                flex-grow: 1;
             }
             .page-content {
                 display: flex;
@@ -36,23 +80,38 @@
             }
             .sidebar {
                 background-color: darkred;
-                width: 20vw;
-                height: 100vh;
+                color: var(--menu-color);
+                width: 220px;
 
                 display: flex;
                 flex-flow: column nowrap;
                 justify-content: flex-start;
             }
-            .sidebar > * {
-                width: 20vw;
-                height: 22px;
-                color: white;
+            .sidebar-button {
+                width: 200px;
+                padding: 20px 0px 20px 20px;
+                font-size: 1.05em;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            .sidebar-button:hover {
+                background-color: violet;
+                color:black;
+            }
+            /* still can't figure how to size the height of th scrollable section to match the bottom */
+            .main-content {
+                overflow-y: auto;
+                height: 95.6vh;
             }
             div.form {
                 border-style: solid;
                 padding: 10px;
             }
             div.header {
+                background-color: white;
                 border-style: dotted dashed solid double;
                 padding: 10px;
             }
@@ -155,26 +214,30 @@
     </head>
     <body>
         <nav>
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
-            <div>Item 5</div>
-            <div>Item 6</div>
-            <div>Item 7</div>
+            <a href="#forFunsies" class="home-icon">Skyward Synergy</a>
+            <div class="nav-menu-items">
+                <div class="nav-menu-button">Home</div>
+                <div class="nav-menu-button">Admin</div>
+                <div class="nav-menu-button">Entries</div>
+                <div class="nav-menu-button">Scheduling</div>
+                <div class="nav-menu-button">Payroll</div>
+                <div class="nav-menu-button">Invoicing</div>
+                <div class="nav-menu-button">Reports</div>
+            </div>
+            <div class="nav-settings">settings</div>
         </nav>
         <div class="page-content">
             <div class="sidebar">
                 <!-- This will be the sidebar nav. -->
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-                <div>Item 4</div>
-                <div>Item 5</div>
-                <div>Item 6</div>
-                <div>Item 7</div>
+                <div class="sidebar-button">Super</div>
+                <div class="sidebar-button">Cali</div>
+                <div class="sidebar-button">Swaglistic</div>
+                <div class="sidebar-button">Sexy</div>
+                <div class="sidebar-button">Hella</div>
+                <div class="sidebar-button">Dopeness</div>
+                <div class="sidebar-button">!</div>
             </div>
-            <div>
+            <div class="main-content">
                 <div class="header">
                     <p><a href="https://alliedup.blueskymss.com/applyonline/default.aspx?applyform=2&alias=alliedup&locid=3" target="_blank">Click this for AlliedUp online application without redirection.</a></p>
                     <p>It takes you to a new tab and not directly to the application. blueskymss.com redirects to the client's landing page.</p>
@@ -197,8 +260,6 @@
                         <div>5c</div>
                         <div>5d</div>
                         <div>5e</div>
-                        <div>5f</div>
-                        <div>5g</div>
                     </div>
                 </div>
                 <div class="flexbox-1">
@@ -253,7 +314,7 @@
                         <p>Mechanic component: URL</p>
                         <input type="url">
                     </div>
-                    <div class="form">
+                    <div id="forFunsies" class="form">
                         <p>Mechanic component: color</p>
                         <input type="color">
                     </div>
