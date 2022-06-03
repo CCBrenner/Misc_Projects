@@ -9,6 +9,8 @@
                 --base-background-color: black;
                 --base-color: black;
                 --menu-color: white;
+                --sidebar-width: 20vw;
+                --main-content-width: 80vw;
             }
             * {
                 margin: 0px;
@@ -28,6 +30,7 @@
                 color: default;
             }
             nav {
+                height: 5vh;
                 background-color: darkblue;
                 color: var(--menu-color);
                 /* position: absolute;
@@ -75,20 +78,24 @@
                 flex-grow: 1;
             }
             .page-content {
+                height: 92vh;
+
                 display: flex;
                 flex-flow: row nowrap;
             }
             .sidebar {
                 background-color: darkred;
                 color: var(--menu-color);
-                width: 220px;
+                width: var(--sidebar-width);
+                overflow-y: auto;
+                overflow-x: hidden;
 
                 display: flex;
                 flex-flow: column nowrap;
                 justify-content: flex-start;
             }
             .sidebar-button {
-                width: 200px;
+                width: var(--sidebar-width);
                 padding: 20px 0px 20px 20px;
                 font-size: 1.05em;
 
@@ -101,10 +108,9 @@
                 background-color: violet;
                 color:black;
             }
-            /* still can't figure how to size the height of th scrollable section to match the bottom */
             .main-content {
+                width: var(--main-content-width);
                 overflow-y: auto;
-                height: 95.6vh;
             }
             div.form {
                 border-style: solid;
@@ -207,6 +213,16 @@
                 width: 3vw;
                 height: 5vh;
             }
+            .footer {
+                height: 3vh;
+                background-color: greenyellow;
+                color: black;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+            }
         </style>
         <script defer>
 
@@ -236,6 +252,35 @@
                 <div class="sidebar-button">Hella</div>
                 <div class="sidebar-button">Dopeness</div>
                 <div class="sidebar-button">!</div>
+                <div class="sidebar-button">Ramen</div>
+                <div class="sidebar-button">Eater</div>
+                <div class="sidebar-button">Loves It</div>
+                <div class="sidebar-button">So Much</div>
+                <div class="sidebar-button">Num num</div>
+                <div class="sidebar-button">Dogeness</div>
+                <div class="sidebar-button">Katie</div>
+                <div class="sidebar-button">SpaceX</div>
+                <div class="sidebar-button">Nuclear</div>
+                <div class="sidebar-button">Mars</div>
+                <div class="sidebar-button">Lovliness</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Pear</div>
             </div>
             <div class="main-content">
                 <div class="header">
@@ -386,5 +431,6 @@
                 </form>
             </div>
         </div>
+        <div class="footer">Weclome to the footer!</div>
     </body>
 </html>
