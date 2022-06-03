@@ -1,0 +1,329 @@
+<html>
+    <head>
+        <title>THIS IS A COOL TITLE!</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 3px;
+                padding: 5px;
+                text-align: center;
+                font-family: monospace;
+            }
+            html, body, .header, .flexbox-1, .flexbox-2, .flexbox-3, .flexbox-4, .flexbox-5, nav, .sidebar {
+                margin: 0px;
+                padding: 0px;
+            }
+            nav {
+                background-color: darkblue;
+                width: 100vw;
+                height: 20px;
+
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-content: center;
+            }
+            nav > * {
+                width: 75px;
+                height: 50px;
+                color: white;
+            }
+            .page-content {
+                display: flex;
+                flex-flow: row nowrap;
+            }
+            .sidebar {
+                background-color: darkred;
+                width: 20vw;
+                height: 100vh;
+
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: flex-start;
+            }
+            .sidebar > * {
+                width: 20vw;
+                height: 22px;
+                color: white;
+            }
+            div.form {
+                border-style: solid;
+                padding: 10px;
+            }
+            div.header {
+                border-style: dotted dashed solid double;
+                padding: 10px;
+            }
+            .flexbox-1 {
+                background-color: DodgerBlue;
+                /*height: 40vh;*/
+
+                display: flex;
+                flex-direction: row;  /* default value: column, column-reverse, row (default), row-reverse */
+                /* Question to ask (for column & column-reverse above): Is height defined? If false, single column. If true, multiple columns possible. */
+                flex-wrap: wrap;  /* Options: wrap, nowrap (default), wrap-reverse */
+                /* flex-flow: row nowrap;  /* for setting both flex-direction and flex-wrap properties */
+                justify-content: center;  /* "justify" = "main axis"; Options: center, flex-start (default), flex-end, space-around, space-between */
+                align-items: stretch;  /* "align" = "cross-axis"; Options: center, flex-start, flex-end, stretch (default), baseline */
+                /* align-items is about what the items do in regards to alignment within their own section of the cross-axis (secondary-axis) */
+                align-content: stretch;   /* Options: Options: center, flex-start, flex-end, stretch (default), baseline */
+                /* align-content is about what the rows/columns (opposite of whatever flex-direction is) do in regards to the cross-axis (secondary-axis) */
+            }
+            .flexbox-1 > * {
+                background-color: #f1f1f1;
+                height: 100px;
+                width: 100px;
+                margin: 10px;
+                line-height: 75px;
+                font-size: 30px;
+                text-align: center;
+
+                /* display: flex;
+                flex-flow: row wrap; */
+
+                /*order: ;  /* Can specify oredr of items by giving an integer value to each item. */
+                /*flex-grow: ;  /* default = 0; will grow flexitem by scale compared to other item's flex-grow value */
+                /*flex-shrink: ;  /* default = 1; will grow flexitem by scale compared to other item's flex-grow value */
+                /*flex-basis: ;  /* Let's you specify the starting size of a flexitem, when it shrinks with the other flexitems (if larger than the others) it shrinks faster and grows faster, and if smaller than the others it shrinks slower and grows slower than the others */
+                /*flex: ;  /* Shorthand for flex-grow, flex-shrink, and flex-basis properties. */
+                /*align-self: ;  /* Allows for custom alignment of a single flexitem */
+            }
+            .flexbox-2 {
+                background-color:blueviolet;
+                padding: 7px;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .flexbox-2 > * {
+                background-color:#f1f1f1;
+                width: 220px;
+                margin: 5px;
+                text-align: center;
+            }
+            .flexbox-3 {
+                background-color:aquamarine;
+
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: stretch;
+                align-items: stretch;
+            }
+            .flexbox-4 {
+                background-color:red;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            .flexbox-4 > * {
+                background-color: aquamarine;
+                width: 130px;
+                height: 100px;
+                margin: 5px;
+                border-style: solid;
+            }
+            .flexbox-5 {
+                background-color:fuchsia;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            .flexbox-5 > * {
+                background-color:aquamarine;
+                width: 130px;
+                height: 100px;
+                margin: 5px;
+                border-style: solid;
+            }
+            .image-input {
+                /* for Google image in input element */
+                width: 3vw;
+                height: 5vh;
+            }
+        </style>
+        <script defer>
+
+        </script>
+    </head>
+    <body>
+        <nav>
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+            <div>Item 5</div>
+            <div>Item 6</div>
+            <div>Item 7</div>
+        </nav>
+        <div class="page-content">
+            <div class="sidebar">
+                <!-- This will be the sidebar nav. -->
+                <div>Item 1</div>
+                <div>Item 2</div>
+                <div>Item 3</div>
+                <div>Item 4</div>
+                <div>Item 5</div>
+                <div>Item 6</div>
+                <div>Item 7</div>
+            </div>
+            <div>
+                <div class="header">
+                    <p><a href="https://alliedup.blueskymss.com/applyonline/default.aspx?applyform=2&alias=alliedup&locid=3" target="_blank">Click this for AlliedUp online application without redirection.</a></p>
+                    <p>It takes you to a new tab and not directly to the application. blueskymss.com redirects to the client's landing page.</p>
+                    <p><a href="https://elitestaffing.blueskymss.com/ApplicantGeneral.aspx" target="_blank" >Click here to go to Elite Staffing's Long Application.</a></p>
+                    <button>Some random button</button>
+                </div>
+                <div class="flexbox-3">
+                    <div class="flexbox-4">
+                        <div>4a</div>
+                        <div>4b</div>
+                        <div>4c</div>
+                        <div>4d</div>
+                        <div>4e</div>
+                        <div>4f</div>
+                        <div>4g</div>
+                    </div>
+                    <div class="flexbox-5">
+                        <div>5a</div>
+                        <div>5b</div>
+                        <div>5c</div>
+                        <div>5d</div>
+                        <div>5e</div>
+                        <div>5f</div>
+                        <div>5g</div>
+                    </div>
+                </div>
+                <div class="flexbox-1">
+                    <span>1</span>
+                    <div>2</div>
+                    <div>3</div>  
+                    <div>4</div>
+                    <div>5</div>
+                    <div>6</div>  
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                    <div>10</div>
+                    <div>11</div>  
+                    <div>12</div>
+                    <div>13</div>
+                    <div>14</div>  
+                    <div>15</div>
+                    <div>16</div>
+                </div>
+                <form action="POST" class="flexbox-2">
+                    <div class="form">
+                        <p>Mechanic component: solo textbox (with placeholder text)</p>
+                        <input type="text" placeholder="This is placeholder text.">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: radio  button with label</p>
+                        <input name="bop" type="radio">
+                        <label for="bop">Bop This</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input name="twist" type="radio">
+                        <label for="twist">Twist it!</label>
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: checkbox with label</p>
+                        <input name="checkit" type="checkbox">
+                        <label for="checkit">Check it!</label>
+                        &nbsp;&nbsp;&nbsp;
+                        <input name="checkthat" type="checkbox">
+                        <label for="checkthat">Check that!</label>
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: label in front of textbox</p>
+                        <label for="textblocker">Textblocker</label>
+                        <input type="text" name="textblocker">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: week</p>
+                        <input type="week">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: URL</p>
+                        <input type="url">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: color</p>
+                        <input type="color">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: date</p>
+                        <input type="date">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: datetime-local</p>
+                        <input type="datetime-local">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: datetime</p>
+                        <input type="datetime">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: email</p>
+                        <input type="email">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: file</p>
+                        <input type="file">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: hidden</p>
+                        <input type="hidden">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: image</p>
+                        <input type="image" src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg" class="image-input">
+                        <p><i>(This image's width and hight are defined by a % of the viewport; when the viewport changes size so does the image)</i></p>
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: month</p>
+                        <input type="month">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: number</p>
+                        <input type="number">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: password</p>
+                        <input type="password">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: range</p>
+                        <input type="range">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: search</p>
+                        <input type="search">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: tel</p>
+                        <input type="tel">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: time</p>
+                        <input type="time">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: reset</p>
+                        <input type="reset">
+                    </div>
+                    <div class="form">
+                        <p>Mechanic component: submit button for form</p>
+                        <button action="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
