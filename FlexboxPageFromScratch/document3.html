@@ -6,19 +6,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
         <style>
             * {
-                margin: 3px;
-                padding: 5px;
-                text-align: center;
-                font-family: monospace;
-            }
-            html, body, .header, .flexbox-1, .flexbox-2, .flexbox-3, .flexbox-4, .flexbox-5, nav, .sidebar {
                 margin: 0px;
                 padding: 0px;
+                text-align: center;
+                font-family: monospace;
             }
             nav {
                 background-color: darkblue;
                 width: 100vw;
-                height: 20px;
 
                 display: flex;
                 flex-flow: row nowrap;
@@ -27,8 +22,9 @@
             }
             nav > * {
                 width: 75px;
-                height: 50px;
+                line-height: 50px;
                 color: white;
+                padding: 5px;
             }
             .page-content {
                 display: flex;
@@ -45,7 +41,9 @@
             }
             .sidebar > * {
                 width: 20vw;
-                height: 22px;
+                line-height: 22px;
+                padding: 5px;
+                text-align: left;
                 color: white;
             }
             div.form {
@@ -174,7 +172,7 @@
                 <div>Item 6</div>
                 <div>Item 7</div>
             </div>
-            <div>
+            <div class="article">
                 <div class="header">
                     <p><a href="https://alliedup.blueskymss.com/applyonline/default.aspx?applyform=2&alias=alliedup&locid=3" target="_blank">Click this for AlliedUp online application without redirection.</a></p>
                     <p>It takes you to a new tab and not directly to the application. blueskymss.com redirects to the client's landing page.</p>
