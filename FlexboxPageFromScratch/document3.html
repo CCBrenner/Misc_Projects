@@ -5,6 +5,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap" rel="stylesheet">
         <style>
+            :root {
+                --base-background-color: black;
+                --base-color: black;
+                --menu-color: white;
+                --sidebar-width: 240px;
+                --main-content-width: 95%;
+            }
             * {
                 margin: 0px;
                 padding: 0px;
@@ -12,13 +19,44 @@
                 font-family: monospace;
             }
             nav {
+                height: 5vh;
                 background-color: darkblue;
                 width: 100vw;
 
                 display: flex;
                 flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .home-icon {
+                font-size: 1.4em;
+                padding-left: 15px;
+                width: 150px;
+                color: var(--menu-color);
+
+                flex-grow: 1;
+            }
+            .nav-menu-items {
+                font-size: 1.05em;
+
+                flex-grow: 6;
+
+                display: flex;
+                flex-flow: row nowrap;
                 justify-content: center;
-                align-content: center;
+                align-items: center;
+            }
+            .nav-menu-button {
+                padding: 12px 25px;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
+            }
+            .nav-menu-button:hover {
+                background-color:aqua;
+                color:black;
             }
             nav > * {
                 width: 75px;
@@ -27,13 +65,17 @@
                 padding: 5px;
             }
             .page-content {
+                height: 92vh;
+
                 display: flex;
                 flex-flow: row nowrap;
             }
             .sidebar {
                 background-color: darkred;
-                width: 20vw;
-                height: 100vh;
+                color: var(--menu-color);
+                width: var(--sidebar-width);
+                overflow-y: auto;
+                overflow-x: hidden;
 
                 display: flex;
                 flex-flow: column nowrap;
@@ -51,6 +93,7 @@
                 padding: 10px;
             }
             div.header {
+                background-color: white;
                 border-style: dotted dashed solid double;
                 padding: 10px;
             }
@@ -143,8 +186,18 @@
             }
             .image-input {
                 /* for Google image in input element */
-                width: 3vw;
-                height: 5vh;
+                width: 40px;
+                height: 40px;
+            }
+            .footer {
+                height: 3vh;
+                background-color: greenyellow;
+                color: black;
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: center;
+                align-items: center;
             }
         </style>
         <script defer>
@@ -153,24 +206,57 @@
     </head>
     <body>
         <nav>
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
-            <div>Item 5</div>
-            <div>Item 6</div>
-            <div>Item 7</div>
+            <a href="#forFunsies" class="home-icon">Skyward Synergy</a>
+            <div class="nav-menu-items">
+                <div class="nav-menu-button">Home</div>
+                <div class="nav-menu-button">Admin</div>
+                <div class="nav-menu-button">Entries</div>
+                <div class="nav-menu-button">Scheduling</div>
+                <div class="nav-menu-button">Payroll</div>
+                <div class="nav-menu-button">Invoicing</div>
+                <div class="nav-menu-button">Reports</div>
+            </div>
+            <div class="nav-settings">settings</div>
         </nav>
         <div class="page-content">
             <div class="sidebar">
                 <!-- This will be the sidebar nav. -->
-                <div>Item 1</div>
-                <div>Item 2</div>
-                <div>Item 3</div>
-                <div>Item 4</div>
-                <div>Item 5</div>
-                <div>Item 6</div>
-                <div>Item 7</div>
+                <div class="sidebar-button">Super</div>
+                <div class="sidebar-button">Cali</div>
+                <div class="sidebar-button">Swaglistic</div>
+                <div class="sidebar-button">Sexy</div>
+                <div class="sidebar-button">Hella</div>
+                <div class="sidebar-button">Dopeness</div>
+                <div class="sidebar-button">!</div>
+                <div class="sidebar-button">Ramen</div>
+                <div class="sidebar-button">Eater</div>
+                <div class="sidebar-button">Loves It</div>
+                <div class="sidebar-button">So Much</div>
+                <div class="sidebar-button">Num num</div>
+                <div class="sidebar-button">Dogeness</div>
+                <div class="sidebar-button">Katie</div>
+                <div class="sidebar-button">SpaceX</div>
+                <div class="sidebar-button">Nuclear</div>
+                <div class="sidebar-button">Mars</div>
+                <div class="sidebar-button">Lovliness</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Lemons</div>
+                <div class="sidebar-button">Pear</div>
             </div>
             <div class="article">
                 <div class="header">
@@ -195,8 +281,6 @@
                         <div>5c</div>
                         <div>5d</div>
                         <div>5e</div>
-                        <div>5f</div>
-                        <div>5g</div>
                     </div>
                 </div>
                 <div class="flexbox-1">
@@ -251,7 +335,7 @@
                         <p>Mechanic component: URL</p>
                         <input type="url">
                     </div>
-                    <div class="form">
+                    <div id="forFunsies" class="form">
                         <p>Mechanic component: color</p>
                         <input type="color">
                     </div>
@@ -282,7 +366,6 @@
                     <div class="form">
                         <p>Mechanic component: image</p>
                         <input type="image" src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg" class="image-input">
-                        <p><i>(This image's width and hight are defined by a % of the viewport; when the viewport changes size so does the image)</i></p>
                     </div>
                     <div class="form">
                         <p>Mechanic component: month</p>
@@ -323,5 +406,6 @@
                 </form>
             </div>
         </div>
+        <div class="footer">Weclome to the footer!</div>
     </body>
 </html>
