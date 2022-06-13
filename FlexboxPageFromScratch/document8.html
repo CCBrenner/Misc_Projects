@@ -4,6 +4,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://kit.fontawesome.com/1d8f2188a9.js" crossorigin="anonymous" defer></script>
         <style>
+            :root {
+                --verticle-intersect: 50px;
+                --nav-body-intersect: var(--verticle-intersect);
+                --body-footer-intersect: var(--verticle-intersect);
+                --toolbar-sidebar-intersect: 50px;
+                --sidebar-width: 200px;
+                --sidebarextended-maincontent-intersect: 250px;
+            }
             * {
                 margin: 0;
                 padding: 0;
@@ -19,24 +27,43 @@
                 display: flex;
                 flex-flow: column nowrap;
             }
+            /* Navbar */
             .section1 {
                 background-color: grey;
-                height: 35px;
+                position: fixed;
+                top: 0px;
+                height: var(--verticle-intersect);
+                left: 0px;
+                right: 0px;
             }
+            /* Main Section */
             .section2 {
-                flex-grow: 1;
-
-                display: flex;
-                flex-flow: row nowrap;
+                position: fixed;
+                top: var(--verticle-intersect);
+                bottom: var(--body-footer-intersect);
+                left: 0px;
+                right: 0px;
             }
+            /* Footer */
             .section3 {
                 background-color: green;
-                height: 35px;
+                position: fixed;
+                height: var(--body-footer-intersect);
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
             }
             .toolbar {
+                background-color: teal;
+                position: fixed;
+                top: var(--nav-body-intersect);
+                bottom: var(--body-footer-intersect);
+                left: 0px;
+                width: var(--toolbar-sidebar-intersect);
+
                 display: flex;
                 flex-flow: column nowrap;
-                align-items: flex-start;
+                align-items: center;
             }
             .toolbutton {
                 width: 20px;
@@ -52,7 +79,11 @@
             }
             .sidebar {
                 background-color: red;
-                width: 200px;
+                position: fixed;
+                top: var(--nav-body-intersect);
+                bottom: var(--body-footer-intersect);
+                left: var(--toolbar-sidebar-intersect);
+                width: var(--sidebar-width);
             }
             .sidebarbutton {
                 width: 186px;
@@ -65,9 +96,20 @@
             .sidebarbutton:hover {
                 background-color: blueviolet;
             }
+            .main-content {
+                position: fixed;
+                top: var(--nav-body-intersect);
+                bottom: var(--body-footer-intersect);
+                right: 0px;
+                left: var(--sidebarextended-maincontent-intersect);
+
+                display: flex;
+                flex-flow: row nowrap;
+            }
             .sec2 {
                 flex-grow: 1;
                 padding: 4px;
+                overflow-y: auto;
 
                 display: flex;
                 flex-flow: row wrap;
@@ -79,8 +121,6 @@
             }
             .section2B {
                 background-color: pink;
-                overflow-y: auto;
-                height: 800px;
             }
             .section2C {
                 background-color: lemonchiffon;
@@ -141,80 +181,82 @@
                     </select>
                 </div>
             </div>
-            <div class="section2A sec2" id="section2A">
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-            </div>
-            <div class="section2B sec2" id="section2B">
-                <!-- <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div> -->
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-                <p>This is somsething that can be repeated.</p>
-            </div>
-            <div class="section2C sec2" id="section2C">
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-            </div>
-            <div class="section2D sec2" id="section2D">
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-            </div>
-            <div class="section2E sec2" id="section2E">
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-            </div>
-            <div class="section2F sec2" id="section2F">
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-            </div>
-            <div class="section2G sec2" id="section2G">
-                <div class="areaBox"></div>
-                <div class="areaBox"></div>
-            </div>
-            <div class="section2H sec2" id="section2H">
-                <div class="areaBox"></div>
+            <div class="main-content">
+                <div class="section2A sec2" id="section2A">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2B sec2" id="section2B">
+                    <!-- <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>-->
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div> 
+                    <!-- <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p> -->
+                </div>
+                <div class="section2C sec2" id="section2C">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2D sec2" id="section2D">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2E sec2" id="section2E">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2F sec2" id="section2F">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2G sec2" id="section2G">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2H sec2" id="section2H">
+                    <div class="areaBox"></div>
+                </div>
             </div>
         </div>
         <div class="section3" id="section3">This is the footer.</div>
