@@ -1,0 +1,178 @@
+:root {
+    --verticle-intersect: 50px;
+    --nav-body-intersect: var(--verticle-intersect);
+    --body-footer-intersect: var(--verticle-intersect);
+    --toolbar-sidebar-intersect: 50px;
+    --sidebar-width: 200px;
+    --sidebarextended-maincontent-intersect: 250px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+html, body {
+    overflow: hidden;
+}
+body {
+    height: 100vh;
+
+    display: flex;
+    flex-flow: column nowrap;
+}
+/* Navbar */
+.section1 {
+    background-color: rgb(135, 55, 55);
+    position: fixed;
+    top: 0px;
+    height: var(--verticle-intersect);
+    left: 0px;
+    right: 0px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.navitem {
+    line-height: var(--nav-body-intersect);
+    width: 100%;
+}
+.navitem:hover {
+    background-color: rgb(68, 156, 185);
+    border-bottom: 3px solid;
+}
+/* Main Section */
+.section2 {
+    position: fixed;
+    top: var(--verticle-intersect);
+    bottom: var(--body-footer-intersect);
+    left: 0px;
+    right: 0px;
+}
+/* Footer */
+.section3 {
+    background-color: green;
+    position: fixed;
+    height: var(--body-footer-intersect);
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+.toolbar {
+    background-color: teal;
+    position: fixed;
+    top: var(--nav-body-intersect);
+    bottom: var(--body-footer-intersect);
+    left: 0px;
+    width: var(--toolbar-sidebar-intersect);
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.toolbutton {
+    width: 20px;
+    height: 16px;
+    background-color: skyblue;
+    padding: 10px;
+    margin: 2px;
+    text-align: center;
+}
+.toolbutton:hover {
+    background-color: blueviolet;
+    color: white;
+}
+.sidebar {
+    background-color: red;
+    position: fixed;
+    top: var(--nav-body-intersect);
+    bottom: var(--body-footer-intersect);
+    left: var(--toolbar-sidebar-intersect);
+    width: var(--sidebar-width);
+}
+.sidebarbutton {
+    background-color: seagreen;
+    line-height: 45px;
+    padding-left: 10px;
+    color: white;
+    margin: 3px;
+    text-align: left;
+}
+.sidebarbutton:hover {
+    background-color: blueviolet;
+}
+.main-content {
+    position: fixed;
+    top: var(--nav-body-intersect);
+    bottom: var(--body-footer-intersect);
+    right: 0px;
+    left: var(--sidebarextended-maincontent-intersect);
+
+    display: flex;
+    flex-flow: row nowrap;
+}
+.sec2 {
+    flex-grow: 1;
+    padding: 4px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+#sidebarbutton3 {
+    margin-bottom: 0px;
+}
+#areaOptions {
+    background-color: lightgrey;
+    display: none;
+    margin: 0px 3px;
+    overflow-y: auto;
+    z-index: 2;
+    height: 200px;
+}
+.areaOption {
+    line-height: 45px;
+    width: 100%;
+}
+.areaOption:hover {
+    background-color:darkslategrey;
+    color: white;
+}
+.section2A {
+    background-color: turquoise;
+}
+.section2B {
+    background-color: pink;
+}
+.section2C {
+    background-color: lemonchiffon;
+}
+.section2D {
+    background-color: chocolate;
+    display: none;
+}
+.section2E {
+    background-color: teal;
+    display: none;
+}
+.section2F {
+    background-color: tan;
+    display: none;
+}
+.section2G {
+    background-color: lightcoral;
+    display: none;
+}
+.section2H {
+    background-color: fuchsia;
+    display: none;
+}
+.areaBox {
+    width: 200px;
+    height: 180px;
+    background-color: black;
+    margin: 3px;
+}
