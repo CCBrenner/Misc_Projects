@@ -19,13 +19,16 @@ function toggleNav() {
 }
 function toggleSidebar() {
     let sidebar = document.getElementById("sidebar");
+    let toolbutton2 = document.getElementById("toolbutton2");
     let r = document.querySelector(":root");
     if (sidebar.style.display === "none") {
         sidebar.style.display = "block";
+        toolbutton2.style.color = "black";
         r.style.setProperty("--sidebarextended-maincontent-intersect", `${sidebarextendedMaincontentIntersect}px`);
     }
     else {
         sidebar.style.display = "none";
+        toolbutton2.style.color = "grey";
         r.style.setProperty("--sidebarextended-maincontent-intersect", `${toolbarSidebarIntersect}px`);
     }
 }

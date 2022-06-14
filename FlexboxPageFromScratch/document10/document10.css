@@ -35,12 +35,12 @@ body {
     justify-content: space-around;
 }
 .navitem {
+    color: white;
     line-height: var(--nav-body-intersect);
     width: 100%;
 }
 .navitem:hover {
-    background-color: rgb(68, 156, 185);
-    border-bottom: 3px solid;
+    border-bottom: 4px solid;
 }
 /* Main Section */
 .section2 {
@@ -60,7 +60,7 @@ body {
     bottom: 0px;
 }
 .toolbar {
-    background-color: teal;
+    background-color: rgb(173, 57, 165);
     position: fixed;
     top: var(--nav-body-intersect);
     bottom: var(--body-footer-intersect);
@@ -72,15 +72,13 @@ body {
     align-items: center;
 }
 .toolbutton {
-    width: 20px;
-    height: 16px;
-    background-color: skyblue;
-    padding: 10px;
-    margin: 2px;
+    width: 100%;
+    line-height: 30px;
+    padding: 12px;
     text-align: center;
 }
 .toolbutton:hover {
-    background-color: blueviolet;
+    background-color: yellow;
     color: white;
 }
 .sidebar {
