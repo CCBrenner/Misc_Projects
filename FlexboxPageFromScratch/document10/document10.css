@@ -72,13 +72,13 @@ body {
     align-items: center;
 }
 .toolbutton {
-    width: 100%;
+    width: 98%;
     line-height: 30px;
     padding: 12px;
     text-align: center;
 }
 .toolbutton:hover {
-    background-color: yellow;
+    border-left: 3px solid;
     color: white;
 }
 .sidebar {
@@ -88,6 +88,7 @@ body {
     bottom: var(--body-footer-intersect);
     left: var(--toolbar-sidebar-intersect);
     width: var(--sidebar-width);
+    transition: 0.5s;
 }
 .sidebarbutton {
     background-color: seagreen;
@@ -106,6 +107,7 @@ body {
     bottom: var(--body-footer-intersect);
     right: 0px;
     left: var(--sidebarextended-maincontent-intersect);
+    transition: 0.5s;
 
     display: flex;
     flex-flow: row nowrap;
