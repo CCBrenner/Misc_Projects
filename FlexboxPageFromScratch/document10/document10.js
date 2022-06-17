@@ -31,20 +31,41 @@ function toggleSidebar() {
         document.querySelector(":root").style.setProperty("--sidebar-width", "200px");
     }
 }
-function toggleFullOptions() {
+let fullOptionsOn = () => {
     let option1 = document.getElementById("toolbutton1");
     let option3 = document.getElementById("toolbutton3");
-    let button = document.getElementById("sidebarbutton1")
-    if (fullOptionsStatus == true) {
-        fullOptionsStatus = false;
-        option1.style.display = "none";
-        option3.style.display = "none";
-        button.textContent = "Full Options: false";
-    } else {
-        fullOptionsStatus = true;
-        option1.style.display = "block";
-        option3.style.display = "block";
-        button.textContent = "Full Options: true";
+    let button = document.getElementById("sidebarbutton1");
+    option1.style.display = "block";
+    option3.style.display = "block";
+    button.textContent = "Full Options: true";
+}
+let fullOptionsOff = () => {
+    let option1 = document.getElementById("toolbutton1");
+    let option3 = document.getElementById("toolbutton3");
+    let button = document.getElementById("sidebarbutton1");
+    option1.style.display = "none";
+    option3.style.display = "none";
+    button.textContent = "Full Options: false";
+}
+let setFullOptions = (setterStatus) => {
+    if (setterStatus == "toggle") {
+        if (fullOptionsStatus == true) {
+            fullOptionsStatus = false;
+            fullOptionsOff();
+        } else {
+            fullOptionsStatus = true;
+            fullOptionsOn();
+        }
+    }
+    else {
+        if (setterStatus) {
+            fullOptionsStatus = true;
+            fullOptionsOn();
+        }
+        else {
+            fullOptionsStatus = false;
+            fullOptionsOff();
+        }
     }
 }
 let footerOn = () => {
@@ -54,6 +75,7 @@ let footerOff = () => {
     document.querySelector(":root").style.setProperty("--body-footer-intersect", "0px");
 }
 let setFooter = (setterStatus) => {
+    // takes "toggle", true, or false
     if (setterStatus == "toggle") {
         if (footerStatus == true) {
             footerStatus = false;
@@ -78,7 +100,7 @@ let setFooter = (setterStatus) => {
 let toggleAll = () => {
     toggleNav();
     toggleSidebar();
-    toggleFullOptions();
+    setFullOptions("toggle");
     setFooter("toggle");
 }
 function areas() {
