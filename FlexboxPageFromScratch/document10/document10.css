@@ -16,40 +16,71 @@ html, body {
     overflow: hidden;
 }
 body {
+    background-color: black;
     height: 100vh;
 
     display: flex;
     flex-flow: column nowrap;
 }
-#overlayWindow{
+#loadingScreen {
+    z-index: 2;
+    line-height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+    font-size: 5em;
+}
+#overlayWindowContainer{
     height: 100%;
     width: 0;
     visibility: hidden;
-    background-color: rgba(4, 4, 4, 0.8);
+    background-color: rgba(4, 4, 4, 0.6);
     z-index: 1;
-    color: white;
-    transition: 0.5s;
+    /* transition: 0.5s; */
     overflow: none;
 
     display: flex;
-    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
-.windowMenu {
+.overlayWindow {
+    background-color: blanchedalmond;
     width: 50%;
-    height: 70%;
-    background-color: bisque;
+    /* height: 70%; */
+    padding: 15px;
+    border-radius: 18px;
 }
-.closeWindow {
-    width: 70px;
+.closeWindowContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.closeWindowButton {
+    width: 35px;
     line-height: 30px;
-    border-radius: 20px;
+    /* position: fixed;
+    top: 10px;
+    right: 10px; */
+    border-radius: 12px;
+    border-width: 2px;
+    border-style: solid;
     background-color: aquamarine;
     color: black;
 }
 .closeWindow:hover {
     cursor: pointer;
+}
+.windowContent {
+    position: relative;
+    top: -20;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
 }
 .navbar {
     background-color: rgb(135, 55, 55);

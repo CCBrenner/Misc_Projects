@@ -102,12 +102,12 @@ let setFullOptions = (setterStatus) => {
     }
 }
 let openWindow = () => {
-    document.getElementById("overlayWindow").style.width = "100%";
-    document.getElementById("overlayWindow").style.visibility = "visible";
+    document.getElementById("overlayWindowContainer").style.width = "100%";
+    document.getElementById("overlayWindowContainer").style.visibility = "visible";
 }
 let closeWindow = () => {
-    document.getElementById("overlayWindow").style.width = 0;
-    document.getElementById("overlayWindow").style.visibility = "hidden";
+    document.getElementById("overlayWindowContainer").style.width = 0;
+    document.getElementById("overlayWindowContainer").style.visibility = "hidden";
 }
 let footerOn = () => {
     document.querySelector(":root").style.setProperty("--footer-height", `${footerHeight}px`);
@@ -243,16 +243,22 @@ function areas() {
 let areas2 = (amtOfAreas) => {
     
     let areas = ["section2A", "section2B", "section2C", "section2D", "section2E", "section2F", "section2G", "section2H"];
+    let areaCount = 0;
 
+    // foreach will not work here; you need the i for the if's conditional statement
     for (let i=0; i < areas.length; i++) {
         let area = areas[i]
         if (i < amtOfAreas) {
             document.getElementById(area).style.display = "flex";
+            areaCount++;
         }
         else {
             document.getElementById(area).style.display = "none";
         }
     }
+
+    let s = (areaCount == 1) ? "" : "s";
+    document.getElementById("sidebarbutton3").textContent = `Selected: ${areaCount} Area${s}`;
 }
 let areaOptionsDropdown = () => {
     let areaOptions = document.getElementById("areaOptions");
@@ -266,3 +272,11 @@ let areaOptionsDropdown = () => {
 let resizeWindow = () => {
     resizeTo(300, 300);
 }
+
+
+// KEEP AT BOTTOM OF JS SCRIPT:
+let loadingCompleted = () => {
+    document.getElementById("loadingScreen").style.height = 0;
+    document.getElementById("loadingScreen").style.visibility = "hidden";
+}
+loadingCompleted();
