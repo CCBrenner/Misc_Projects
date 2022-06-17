@@ -9,6 +9,12 @@
         <title>💻 RWD with Buttons</title>
     </head>
     <body>
+
+        <div id="overlayWindow">
+            <div class="closeWindow" onclick="closeWindow()">X</div>
+            <div class="windowContent"><br>This is just some text<br>to break up<br>some of the<br>monotony.<br><br>*Click the "X" above to close this window.*</div>
+        </div>
+
         <div class="navbar" id="navbar">
             <div class="navitem">Admin</div>
             <div class="navitem">Entries</div>
@@ -57,7 +63,7 @@
                     <div class="areaOption" onclick="areas2(7)">7 Areas</div>
                     <div class="areaOption" onclick="areas2(8)">8 Areas</div>
                 </div>
-                <div id="sidebarbutton4" class="sidebarbutton" onclick="triggerPopup()">Trigger Popup Window</div>
+                <div id="sidebarbutton4" class="sidebarbutton" onclick="openWindow()">Open Window</div>
                 <div id="sidebarbutton5" class="sidebarbutton" onclick="resizeWindow()">Resize Window</div>
             </div>
             <div class="main-content">

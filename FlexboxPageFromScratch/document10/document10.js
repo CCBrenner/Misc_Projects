@@ -101,6 +101,14 @@ let setFullOptions = (setterStatus) => {
         }
     }
 }
+let openWindow = () => {
+    document.getElementById("overlayWindow").style.width = "100%";
+    document.getElementById("overlayWindow").style.visibility = "visible";
+}
+let closeWindow = () => {
+    document.getElementById("overlayWindow").style.width = 0;
+    document.getElementById("overlayWindow").style.visibility = "hidden";
+}
 let footerOn = () => {
     document.querySelector(":root").style.setProperty("--footer-height", `${footerHeight}px`);
 }
@@ -137,6 +145,8 @@ let setAll = (navbar, sidebar, fullOptions, footer) => {
     setFooter(footer);
 }
 function areas() {
+    // this button is used less and is kept heere as an example of 
+    // what isn't the best option
     let selection = document.getElementById("areasSelector").value;
     let twoA = document.getElementById("section2A");
     let twoB = document.getElementById("section2B");
@@ -252,31 +262,6 @@ let areaOptionsDropdown = () => {
     else {
         areaOptions.style.display = "block";
     }
-}
-let triggerPopup = () => {
-    let popup = document.createElement("div");
-    popup.classList.add("section2I", "sec2");
-    popup.style.display = "fixed";
-    popup.style.backgroundColor = "black";
-    popup.style.left = 0;
-    popup.style.right = 0;
-    popup.style.bottom = 0;
-    popup.style.top = 0;
-    // popup.style.width = "100%";
-    // popup.style.height = "100%";
-    popup.style.zIndex = 1;
-    // popup.style.display = "flex";
-    // popup.style.flexFlow = "row wrap";
-    // popup.style.justifyContent = "center";
-    // popup.style.alignItems = "center";
-    
-    let popupWindow = document.createElement("div");
-    popupWindow.style.padding = 20;
-    popupWindow.textContent = "This is a freaking popup window!";
-
-    popup.innerHTML = popupWindow;
-
-    document.getElementsByClassName("main-content").appendChild(popup);
 }
 let resizeWindow = () => {
     resizeTo(300, 300);

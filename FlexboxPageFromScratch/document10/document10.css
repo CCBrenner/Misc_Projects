@@ -21,6 +21,36 @@ body {
     display: flex;
     flex-flow: column nowrap;
 }
+#overlayWindow{
+    height: 100%;
+    width: 0;
+    visibility: hidden;
+    background-color: rgba(4, 4, 4, 0.8);
+    z-index: 1;
+    color: white;
+    transition: 0.5s;
+    overflow: none;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.windowMenu {
+    width: 50%;
+    height: 70%;
+    background-color: bisque;
+}
+.closeWindow {
+    width: 70px;
+    line-height: 30px;
+    border-radius: 20px;
+    background-color: aquamarine;
+    color: black;
+}
+.closeWindow:hover {
+    cursor: pointer;
+}
 .navbar {
     background-color: rgb(135, 55, 55);
     position: fixed;
