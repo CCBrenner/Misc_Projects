@@ -102,11 +102,11 @@ let setFullOptions = (setterStatus) => {
     }
 }
 let openWindow = () => {
-    document.getElementById("overlayWindowContainer").style.width = "100%";
+    document.getElementById("overlayWindowContainer").style.height = "100%";
     document.getElementById("overlayWindowContainer").style.visibility = "visible";
 }
 let closeWindow = () => {
-    document.getElementById("overlayWindowContainer").style.width = 0;
+    document.getElementById("overlayWindowContainer").style.height = 0;
     document.getElementById("overlayWindowContainer").style.visibility = "hidden";
 }
 let footerOn = () => {

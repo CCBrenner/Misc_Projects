@@ -31,12 +31,11 @@ body {
     font-size: 5em;
 }
 #overlayWindowContainer{
-    height: 100%;
-    width: 0;
+    height: 0;
+    width: 100%;
     visibility: hidden;
     background-color: rgba(4, 4, 4, 0.6);
     z-index: 1;
-    /* transition: 0.5s; */
     overflow: none;
 
     display: flex;
@@ -45,10 +44,8 @@ body {
 }
 .overlayWindow {
     background-color: blanchedalmond;
-    width: 50%;
-    /* height: 70%; */
-    padding: 15px;
-    border-radius: 18px;
+    padding: 20px 30px;
+    border-radius: 10px;
 }
 .closeWindowContainer {
     display: flex;
@@ -58,11 +55,9 @@ body {
 .closeWindowButton {
     width: 35px;
     line-height: 30px;
-    /* position: fixed;
-    top: 10px;
-    right: 10px; */
-    border-radius: 12px;
-    border-width: 2px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: grey;
     border-style: solid;
     background-color: aquamarine;
     color: black;
