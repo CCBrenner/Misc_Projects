@@ -9,7 +9,7 @@
         <title>💻 RWD with Buttons</title>
     </head>
     <body>
-        <div class="section1" id="section1">
+        <div class="navbar" id="navbar">
             <div class="navitem">Admin</div>
             <div class="navitem">Entries</div>
             <div class="navitem">Scheduling</div>
@@ -20,25 +20,19 @@
         </div>
         <div class="section2">
             <div class="toolbar">
-                <div id="toolbutton1" class="toolbutton" onclick="toggleNav()"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div id="toolbutton1" class="toolbutton" onclick="setNavbar('toggle')"><i class="fa-solid fa-map-location-dot"></i></div>
                 <div id="toolbutton2" class="toolbutton" onclick="setSidebar('toggle')"><i class="fa-solid fa-bars"></i></div>
                 <div id="toolbutton3" class="toolbutton" onclick="setFooter('toggle')"><i class="fa-solid fa-shoe-prints"></i></div>
-                <div id="toolbutton4" class="toolbutton" onclick="toggleAll()">T*</div>
-                <div id="toolbutton4" class="toolbutton" onclick="preset1()">P1</div>
+                <div id="toolbutton4" class="toolbutton" onclick="setAll('toggle','toggle','toggle','toggle')">T*</div>
+                <div id="toolbutton5" class="toolbutton" onclick="setAll(true, true, true, true)">O*</div>
+                <div id="toolbutton6" class="toolbutton" onclick="setAll(false, false, false, false)">C*</div>
+                <div id="toolbutton7" class="toolbutton" onclick="setAll(true, false, false, true)">P1</div>
+                <div id="toolbutton8" class="toolbutton" onclick="setAll(false, true, true, false)">P2</div>
+                <div id="toolbutton9" class="toolbutton" onclick="setAll(false, false, true, false)">P3</div>
+                <div id="toolbutton10" class="toolbutton" onclick="setAll(true, true, true, false)">P4</div>
             </div>
             <div class="sidebar" id="sidebar">
                 <div id="sidebarbutton1" class="sidebarbutton" onclick="setFullOptions('toggle')">Full Options: true</div>
-                <div id="sidebarbutton3" class="sidebarbutton" onclick="showAreaOptions()">Selected: 3 Areas</div>
-                <div id="areaOptions">
-                    <div class="areaOption" onclick="areas2('A')">1 Area</div>
-                    <div class="areaOption" onclick="areas2('B')">2 Areas</div>
-                    <div class="areaOption" onclick="areas2('C')">3 Areas</div>
-                    <div class="areaOption" onclick="areas2('D')">4 Areas</div>
-                    <div class="areaOption" onclick="areas2('E')">5 Areas</div>
-                    <div class="areaOption" onclick="areas2('F')">6 Areas</div>
-                    <div class="areaOption" onclick="areas2('G')">7 Areas</div>
-                    <div class="areaOption" onclick="areas2('H')">8 Areas</div>
-                </div>
                 <div id="sidebarbutton2" class="sidebarbutton">
                     <select name="areasSelector" id="areasSelector" onchange="areas()">
                         <option value="A">1 Area</option>
@@ -52,6 +46,19 @@
                     </select>
                     &nbsp;
                 </div>
+                <div id="sidebarbutton3" class="sidebarbutton" onclick="areaOptionsDropdown()">Selected: 3 Areas</div>
+                <div id="areaOptions">
+                    <div class="areaOption" onclick="areas2(1)">1 Area</div>
+                    <div class="areaOption" onclick="areas2(2)">2 Areas</div>
+                    <div class="areaOption" onclick="areas2(3)">3 Areas</div>
+                    <div class="areaOption" onclick="areas2(4)">4 Areas</div>
+                    <div class="areaOption" onclick="areas2(5)">5 Areas</div>
+                    <div class="areaOption" onclick="areas2(6)">6 Areas</div>
+                    <div class="areaOption" onclick="areas2(7)">7 Areas</div>
+                    <div class="areaOption" onclick="areas2(8)">8 Areas</div>
+                </div>
+                <div id="sidebarbutton4" class="sidebarbutton" onclick="triggerPopup()">Trigger Popup Window</div>
+                <div id="sidebarbutton5" class="sidebarbutton" onclick="resizeWindow()">Resize Window</div>
             </div>
             <div class="main-content">
                 <div class="section2A sec2" id="section2A">
@@ -131,6 +138,6 @@
                 </div>
             </div>
         </div>
-        <div class="section3" id="section3">This is the footer.</div>
+        <div class="footer" id="section3"><em>Created by Collyn Christopher Brenner</em></div>
     </body>
 </html>

@@ -1,10 +1,9 @@
 :root {
-    --verticle-intersect: 50px;
-    --nav-body-intersect: var(--verticle-intersect);
-    --body-footer-intersect: var(--verticle-intersect);
+    --header-footer-height: 50px;
+    --navbar-height: var(--header-footer-height);
+    --footer-height: var(--header-footer-height);
     --toolbar-sidebar-intersect: 50px;
     --sidebar-width: 200px;
-    --sidebarextended-maincontent-intersect: 250px;
 }
 * {
     margin: 0;
@@ -13,6 +12,7 @@
     text-align: center;
 }
 html, body {
+    /* background-color: black; */
     overflow: hidden;
 }
 body {
@@ -21,12 +21,11 @@ body {
     display: flex;
     flex-flow: column nowrap;
 }
-/* Navbar */
-.section1 {
+.navbar {
     background-color: rgb(135, 55, 55);
     position: fixed;
     top: 0px;
-    height: var(--verticle-intersect);
+    height: var(--navbar-height);
     left: 0px;
     right: 0px;
     transition: 0.5s;
@@ -37,7 +36,7 @@ body {
 }
 .navitem {
     color: white;
-    line-height: var(--nav-body-intersect);
+    line-height: var(--navbar-height);
     width: 100%;
 }
 .navitem:hover {
@@ -47,25 +46,29 @@ body {
 .section2 {
     position: fixed;
     top: var(--verticle-intersect);
-    bottom: var(--body-footer-intersect);
+    bottom: var(--footer-height);
     left: 0px;
     right: 0px;
 }
-/* Footer */
-.section3 {
+.footer {
     background-color: green;
     position: fixed;
-    height: var(--body-footer-intersect);
+    height: var(--footer-height);
     left: 0px;
     right: 0px;
     bottom: 0px;
     transition: 0.5s;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
 }
 .toolbar {
     background-color: rgb(173, 57, 165);
     position: fixed;
-    top: var(--nav-body-intersect);
-    bottom: var(--body-footer-intersect);
+    top: var(--navbar-height);
+    bottom: var(--footer-height);
     left: 0px;
     width: var(--toolbar-sidebar-intersect);
     transition: 0.5s;
@@ -89,8 +92,8 @@ body {
 .sidebar {
     background-color: red;
     position: fixed;
-    top: var(--nav-body-intersect);
-    bottom: var(--body-footer-intersect);
+    top: var(--navbar-height);
+    bottom: var(--footer-height);
     left: var(--toolbar-sidebar-intersect);
     /* right: calc(var(--toolbar-sidebar-intersect) + var(--sidebar-width)); */
     width: var(--sidebar-width);
@@ -109,8 +112,8 @@ body {
 }
 .main-content {
     position: fixed;
-    top: var(--nav-body-intersect);
-    bottom: var(--body-footer-intersect);
+    top: var(--navbar-height);
+    bottom: var(--footer-height);
     right: 0px;
     left: calc(var(--toolbar-sidebar-intersect) + var(--sidebar-width));
     transition: 0.5s;

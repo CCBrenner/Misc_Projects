@@ -1,24 +1,39 @@
-let veritcleIntersect = 50;
-let navBodyIntersect = veritcleIntersect;
-let bodyFooterIntersect = veritcleIntersect;
+let headerFooterHeight = 50;
+let navbarHeight = headerFooterHeight;
+let footerHeight = headerFooterHeight;
 
 let navbarStatus = true;
 let sidebarStatus = true;
 let fullOptionsStatus = true;
 let footerStatus = true;
 
-function toggleNav() {
-    let section1 = document.getElementById("section1");
-    let r = document.querySelector(":root");
-    if (navbarStatus == true) {
-        navbarStatus = false;
-        r.style.setProperty("--nav-body-intersect", "0px");
-        // section1.style.display = "none";
+let navbarOn = () => {
+    document.getElementById("navbar").style.display = "flex";
+    document.querySelector(":root").style.setProperty("--navbar-height", `${navbarHeight}px`);
+}
+let navbarOff = () => {
+    document.querySelector(":root").style.setProperty("--navbar-height", "0px");
+}
+let setNavbar = (setterStatus) => {
+    if (setterStatus == "toggle") {
+        if (navbarStatus == true) {
+            navbarStatus = false;
+            navbarOff();
+        }
+        else {
+            navbarStatus = true;
+            navbarOn();
+        }
     }
     else {
-        navbarStatus = true;
-        section1.style.display = "flex";
-        r.style.setProperty("--nav-body-intersect", `${navBodyIntersect}px`);
+        if (setterStatus) {
+            navbarStatus = true;
+            navbarOn();
+        }
+        else {
+            navbarStatus = false;
+            navbarOff();
+        }
     }
 }
 let sidebarOn = () => {
@@ -87,10 +102,10 @@ let setFullOptions = (setterStatus) => {
     }
 }
 let footerOn = () => {
-    document.querySelector(":root").style.setProperty("--body-footer-intersect", `${bodyFooterIntersect}px`);
+    document.querySelector(":root").style.setProperty("--footer-height", `${footerHeight}px`);
 }
 let footerOff = () => {
-    document.querySelector(":root").style.setProperty("--body-footer-intersect", "0px");
+    document.querySelector(":root").style.setProperty("--footer-height", "0px");
 }
 let setFooter = (setterStatus) => {
     // takes "toggle", true, or false
@@ -115,11 +130,11 @@ let setFooter = (setterStatus) => {
         }
     }    
 }
-let toggleAll = () => {
-    toggleNav();
-    setSidebar("toggle");
-    setFullOptions("toggle");
-    setFooter("toggle");
+let setAll = (navbar, sidebar, fullOptions, footer) => {
+    setNavbar(navbar);
+    setSidebar(sidebar);
+    setFullOptions(fullOptions);
+    setFooter(footer);
 }
 function areas() {
     let selection = document.getElementById("areasSelector").value;
@@ -215,117 +230,21 @@ function areas() {
             break;
     }
 }
-let areas2 = (val) => {
-    let selectedAreas = document.getElementById("sidebarbutton3");
-    let areaOptions = document.querySelector("#areaOptions");
-    let twoA = document.getElementById("section2A");
-    let twoB = document.getElementById("section2B");
-    let twoC = document.getElementById("section2C");
-    let twoD = document.getElementById("section2D");
-    let twoE = document.getElementById("section2E");
-    let twoF = document.getElementById("section2F");
-    let twoG = document.getElementById("section2G");
-    let twoH = document.getElementById("section2H");
-    switch (val) {
-        case "A":
-            twoA.style.display = "flex";
-            twoB.style.display = "none";
-            twoC.style.display = "none";
-            twoD.style.display = "none";
-            twoE.style.display = "none";
-            twoF.style.display = "none";
-            twoG.style.display = "none";
-            twoH.style.display = "none";
-            selectedAreas.textContent = "Selected: 1 Area";
-            areaOptions.style.display = "none";
-            break;
-        case "B":
-            twoA.style.display = "flex";
-            twoB.style.display = "flex";
-            twoC.style.display = "none";
-            twoD.style.display = "none";
-            twoE.style.display = "none";
-            twoF.style.display = "none";
-            twoG.style.display = "none";
-            twoH.style.display = "none";
-            selectedAreas.textContent = "Selected: 2 Areas";
-            areaOptions.style.display = "none";
-            break;
-        case "C":
-            twoA.style.display = "flex";
-            twoB.style.display = "flex";
-            twoC.style.display = "flex";
-            twoD.style.display = "none";
-            twoE.style.display = "none";
-            twoF.style.display = "none";
-            twoG.style.display = "none";
-            twoH.style.display = "none";
-            selectedAreas.textContent = "Selected: 3 Areas";
-            areaOptions.style.display = "none";
-            break;
-        case "D":
-            twoA.style.display = "flex";
-            twoB.style.display = "flex";
-            twoC.style.display = "flex";
-            twoD.style.display = "flex";
-            twoE.style.display = "none";
-            twoF.style.display = "none";
-            twoG.style.display = "none";
-            twoH.style.display = "none";
-            selectedAreas.textContent = "Selected: 4 Areas";
-            areaOptions.style.display = "none";
-            break;
-        case "E":
-            twoA.style.display = "flex";
-            twoB.style.display = "flex";
-            twoC.style.display = "flex";
-            twoD.style.display = "flex";
-            twoE.style.display = "flex";
-            twoF.style.display = "none";
-            twoG.style.display = "none";
-            twoH.style.display = "none";
-            selectedAreas.textContent = "Selected: 5 Areas";
-            areaOptions.style.display = "none";
-            break;
-        case "F":
-            twoA.style.display = "flex";
-            twoB.style.display = "flex";
-            twoC.style.display = "flex";
-            twoD.style.display = "flex";
-            twoE.style.display = "flex";
-            twoF.style.display = "flex";
-            twoG.style.display = "none";
-            twoH.style.display = "none";
-            selectedAreas.textContent = "Selected: 6 Areas";
-            areaOptions.style.display = "none";
-            break;
-        case "G":
-            twoA.style.display = "flex";
-            twoB.style.display = "flex";
-            twoC.style.display = "flex";
-            twoD.style.display = "flex";
-            twoE.style.display = "flex";
-            twoF.style.display = "flex";
-            twoG.style.display = "flex";
-            twoH.style.display = "none";
-            selectedAreas.textContent = "Selected: 7 Areas";
-            areaOptions.style.display = "none";
-            break;
-        case "H":
-            twoA.style.display = "flex";
-            twoB.style.display = "flex";
-            twoC.style.display = "flex";
-            twoD.style.display = "flex";
-            twoE.style.display = "flex";
-            twoF.style.display = "flex";
-            twoG.style.display = "flex";
-            twoH.style.display = "flex";
-            selectedAreas.textContent = "Selected: 8 Areas";
-            areaOptions.style.display = "none";
-            break;
+let areas2 = (amtOfAreas) => {
+    
+    let areas = ["section2A", "section2B", "section2C", "section2D", "section2E", "section2F", "section2G", "section2H"];
+
+    for (let i=0; i < areas.length; i++) {
+        let area = areas[i]
+        if (i < amtOfAreas) {
+            document.getElementById(area).style.display = "flex";
+        }
+        else {
+            document.getElementById(area).style.display = "none";
+        }
     }
 }
-let showAreaOptions = () => {
+let areaOptionsDropdown = () => {
     let areaOptions = document.getElementById("areaOptions");
     if (areaOptions.style.display == "block"){
         areaOptions.style.display = "none";
@@ -333,4 +252,32 @@ let showAreaOptions = () => {
     else {
         areaOptions.style.display = "block";
     }
+}
+let triggerPopup = () => {
+    let popup = document.createElement("div");
+    popup.classList.add("section2I", "sec2");
+    popup.style.display = "fixed";
+    popup.style.backgroundColor = "black";
+    popup.style.left = 0;
+    popup.style.right = 0;
+    popup.style.bottom = 0;
+    popup.style.top = 0;
+    // popup.style.width = "100%";
+    // popup.style.height = "100%";
+    popup.style.zIndex = 1;
+    // popup.style.display = "flex";
+    // popup.style.flexFlow = "row wrap";
+    // popup.style.justifyContent = "center";
+    // popup.style.alignItems = "center";
+    
+    let popupWindow = document.createElement("div");
+    popupWindow.style.padding = 20;
+    popupWindow.textContent = "This is a freaking popup window!";
+
+    popup.innerHTML = popupWindow;
+
+    document.getElementsByClassName("main-content").appendChild(popup);
+}
+let resizeWindow = () => {
+    resizeTo(300, 300);
 }
