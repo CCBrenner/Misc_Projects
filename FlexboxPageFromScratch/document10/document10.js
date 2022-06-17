@@ -21,14 +21,32 @@ function toggleNav() {
         r.style.setProperty("--nav-body-intersect", `${navBodyIntersect}px`);
     }
 }
-function toggleSidebar() {
-    if (sidebarStatus == true){
-        sidebarStatus = false;
-        document.querySelector(":root").style.setProperty("--sidebar-width", "0px");
+let sidebarOn = () => {
+    document.querySelector(":root").style.setProperty("--sidebar-width", "200px");
+}
+let sidebarOff = () => {
+    document.querySelector(":root").style.setProperty("--sidebar-width", "0px");
+}
+let setSidebar = (setterStatus) => {
+    if (setterStatus == "toggle") {
+        if (sidebarStatus == true){
+            sidebarStatus = false;
+            sidebarOff();
+        }
+        else {
+            sidebarStatus = true;
+            sidebarOn();
+        }
     }
     else {
-        sidebarStatus = true;
-        document.querySelector(":root").style.setProperty("--sidebar-width", "200px");
+        if (setterStatus) {
+            sidebarStatus = true;
+            sidebarOn();
+        }
+        else {
+            sidebarStatus = false;
+            sidebarOff();
+        }
     }
 }
 let fullOptionsOn = () => {
@@ -99,7 +117,7 @@ let setFooter = (setterStatus) => {
 }
 let toggleAll = () => {
     toggleNav();
-    toggleSidebar();
+    setSidebar("toggle");
     setFullOptions("toggle");
     setFooter("toggle");
 }
