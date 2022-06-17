@@ -29,6 +29,7 @@ body {
     height: var(--verticle-intersect);
     left: 0px;
     right: 0px;
+    transition: 0.5s;
 
     display: flex;
     flex-flow: row nowrap;
@@ -58,6 +59,7 @@ body {
     left: 0px;
     right: 0px;
     bottom: 0px;
+    transition: 0.5s;
 }
 .toolbar {
     background-color: rgb(173, 57, 165);
@@ -66,6 +68,7 @@ body {
     bottom: var(--body-footer-intersect);
     left: 0px;
     width: var(--toolbar-sidebar-intersect);
+    transition: 0.5s;
 
     display: flex;
     flex-flow: column nowrap;
@@ -73,9 +76,11 @@ body {
 }
 .toolbutton {
     width: 98%;
-    line-height: 30px;
+    line-height: 10px;
+    height: 12px;
     padding: 12px;
     text-align: center;
+    transition: 0.5s;
 }
 .toolbutton:hover {
     border-left: 3px solid;
@@ -87,6 +92,7 @@ body {
     top: var(--nav-body-intersect);
     bottom: var(--body-footer-intersect);
     left: var(--toolbar-sidebar-intersect);
+    /* right: calc(var(--toolbar-sidebar-intersect) + var(--sidebar-width)); */
     width: var(--sidebar-width);
     transition: 0.5s;
 }
@@ -106,7 +112,7 @@ body {
     top: var(--nav-body-intersect);
     bottom: var(--body-footer-intersect);
     right: 0px;
-    left: var(--sidebarextended-maincontent-intersect);
+    left: calc(var(--toolbar-sidebar-intersect) + var(--sidebar-width));
     transition: 0.5s;
 
     display: flex;

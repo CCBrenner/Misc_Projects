@@ -20,7 +20,6 @@ function toggleNav() {
 }
 function toggleSidebar() {
     let sidebar = document.getElementById("sidebar");
-    let toolbutton2 = document.getElementById("toolbutton2");
     let r = document.querySelector(":root");
     if (sidebar.style.display === "none") {
         sidebar.style.display = "block";
@@ -33,7 +32,6 @@ function toggleSidebar() {
 }
 function toggleFooter() {
     let section3 = document.getElementById("section3");
-    let toolbutton3 = document.getElementById("toolbutton3");
     let r = document.querySelector(":root");
     if (section3.style.display === "none") {
         section3.style.display = "block";

@@ -1,65 +1,85 @@
 let veritcleIntersect = 50;
 let navBodyIntersect = veritcleIntersect;
 let bodyFooterIntersect = veritcleIntersect;
-let toolbarSidebarIntersect = 50;
-let sidebarWidth = 200;
-let sidebarextendedMaincontentIntersect = toolbarSidebarIntersect + sidebarWidth;
+
+let navbarStatus = true;
+let sidebarStatus = true;
+let fullOptionsStatus = true;
+let footerStatus = true;
 
 function toggleNav() {
     let section1 = document.getElementById("section1");
     let r = document.querySelector(":root");
-    if (section1.style.display === "none") {
+    if (navbarStatus == true) {
+        navbarStatus = false;
+        r.style.setProperty("--nav-body-intersect", "0px");
+        // section1.style.display = "none";
+    }
+    else {
+        navbarStatus = true;
         section1.style.display = "flex";
         r.style.setProperty("--nav-body-intersect", `${navBodyIntersect}px`);
     }
-    else {
-        section1.style.display = "none";
-        r.style.setProperty("--nav-body-intersect", "0px");
-    }
 }
 function toggleSidebar() {
-    let sidebar = document.getElementById("sidebar");
-    let main = document.querySelector(".mian-content");
-    let toolbutton2 = document.getElementById("toolbutton2");
-    let r = document.querySelector(":root");
-    if (sidebar.style.width == "0px") {
-        // sidebar.style.display = "block";
-        toolbutton2.style.color = "black";
-        sidebar.style.width = sidebarWidth;
-        main.style.left = sidebarextendedMaincontentIntersect;
-        //LEFT FF HERE, TRYING TO ANIMATE SIDEBAR TRANSITION
+    if (sidebarStatus == true){
+        sidebarStatus = false;
+        document.querySelector(":root").style.setProperty("--sidebar-width", "0px");
     }
     else {
-        // sidebar.style.display = "none";
-        toolbutton2.style.color = "grey";
-        r.style.setProperty("--sidebarextended-maincontent-intersect", `${toolbarSidebarIntersect}px`);
-    }
-}
-function toggleFooter() {
-    let section3 = document.getElementById("section3");
-    let r = document.querySelector(":root");
-    if (section3.style.display === "none") {
-        section3.style.display = "block";
-        r.style.setProperty("--body-footer-intersect", `${bodyFooterIntersect}px`);
-    }
-    else {
-        section3.style.display = "none";
-        r.style.setProperty("--body-footer-intersect", "0px");
+        sidebarStatus = true;
+        document.querySelector(":root").style.setProperty("--sidebar-width", "200px");
     }
 }
 function toggleFullOptions() {
     let option1 = document.getElementById("toolbutton1");
     let option3 = document.getElementById("toolbutton3");
     let button = document.getElementById("sidebarbutton1")
-    if (option1.style.display != "none") {
+    if (fullOptionsStatus == true) {
+        fullOptionsStatus = false;
         option1.style.display = "none";
         option3.style.display = "none";
         button.textContent = "Full Options: false";
     } else {
+        fullOptionsStatus = true;
         option1.style.display = "block";
         option3.style.display = "block";
         button.textContent = "Full Options: true";
     }
+}
+let footerOn = () => {
+    document.querySelector(":root").style.setProperty("--body-footer-intersect", `${bodyFooterIntersect}px`);
+}
+let footerOff = () => {
+    document.querySelector(":root").style.setProperty("--body-footer-intersect", "0px");
+}
+let setFooter = (setterStatus) => {
+    if (setterStatus == "toggle") {
+        if (footerStatus == true) {
+            footerStatus = false;
+            footerOff();
+        }
+        else {
+            footerStatus = true;
+            footerOn();
+        }
+    }
+    else {
+        if (setterStatus) {
+            footerStatus = true;
+            footerOn();
+        }
+        else {
+            footerStatus = false;
+            footerOff();
+        }
+    }    
+}
+let toggleAll = () => {
+    toggleNav();
+    toggleSidebar();
+    toggleFullOptions();
+    setFooter("toggle");
 }
 function areas() {
     let selection = document.getElementById("areasSelector").value;
