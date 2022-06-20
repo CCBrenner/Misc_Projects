@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        #component1 {
+            background-color:lightblue;
+        }
+    </style>
+    <script defer>
+        class Component_Type1 {
+            constructor (housingElem, initCount) {
+                this.housingElem = housingElem;
+                this.count = initCount;
+            }
+
+            count = 0;
+            countBy = 1;
+
+            headingText = `Hello World`;
+            buttonText = "Update by clicking here too!";
+            paraText = "This content has been overwritten.";
+
+            removeChildren(elementId) {
+                let element = document.getElementById(elementId)
+            
+                while (element.firstChild) {
+                    element.removeChild(element.firstChild)
+                }
+            }
+            addElement(tag, classes, styles, inner) {
+                let newElement = document.createElement("div");
+                classes.forEach(() => {
+                    return 
+                });
+            }
+            updateSelf(countBy, newContent) {
+                this.removeChildren(this.housingElem);
+
+                let updatedContent;
+                this.countBy = countBy ? countBy : this.countBy;
+
+                if (newContent) {
+                    updatedContent = newContent
+                }
+                else {
+                    updatedContent = document.createElement("div");
+                
+                    let heading = document.createElement("h1");
+                    heading.textContent = `${this.headingText} ${this.count}`;
+                    updatedContent.appendChild(heading);
+                    
+                    let button = document.createElement("button");
+                    button.textContent = this.buttonText;
+                    button.addEventListener('click', this.addSelfToElement);
+                    updatedContent.appendChild(button);
+                    
+                    let para = document.createElement("p");
+                    para.textContent = this.paraText;
+                    updatedContent.appendChild(para);
+                    
+                    this.count += countBy;
+                }
+
+                document.getElementById(this.housingElem).appendChild(updatedContent);
+
+                console.log("Success");
+            }
+        }
+
+        let component1 = new Component_Type1("component1", 0);
+        console.log(component1.housingElem);
+    </script>
+    <title>Component updating.</title>
+</head>
+<body>
+    <br>
+    <p>Click the button below to update the component.</p>
+    <br>
+    <p>Clicking the button bellow deletes what is currently in the component and adds the newest version of the component based on the state of it's class members.</p>
+    <br>
+    <button onclick="component1.updateSelf(3)">Update Component1</button>
+    <br><br>
+    <div id="component1"></div>
+</body>
+</html>
