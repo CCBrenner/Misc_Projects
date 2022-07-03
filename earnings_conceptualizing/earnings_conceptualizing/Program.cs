@@ -17,10 +17,10 @@ class EarningsProfile
 
 
     public decimal EarningsPerMillisecond;
-    public decimal EarningPerSecond;
-    public decimal EarningPerMinute;
-    public decimal EarningPerHour;
-    public decimal EarningsPerDay;  // per 8 - hour day
+    public decimal EarningsPerSecond;
+    public decimal EarningsPerMinute;
+    public decimal EarningsPerHour;
+    public decimal EarningsPerEightHourWorkday;  // per 8 - hour day
     public decimal EarningsPerFiveDayWorkweek;  // per stnd.5-day work week
     public decimal EarningsPerFourWeeks;  // per 4 wks.
     public decimal EarningsPerFiscalQuarter;  // per fiscal quarter (3 months or 65 workdays)
@@ -84,6 +84,28 @@ class EarningsProfile
             }
         }
     }
+    public void CalculateRates()
+    {
+        EarningsPerHour = IsSalary ? (AnnualSalary / WORKDAYS_PER_YEAR / 8) : HourlyPay;
+        
+        EarningsPerMinute = EarningsPerHour /60;
+        EarningsPerSecond = EarningsPerHour /60 /60;
+        EarningsPerMillisecond = EarningsPerHour /60 /60 /1000;
+
+        EarningsPerEightHourWorkday = EarningsPerHour * 8;
+        EarningsPerFiveDayWorkweek = EarningsPerEightHourWorkday * 5;
+        EarningsPerFourWeeks = EarningsPerFiveDayWorkweek * 4;
+        EarningsPerFiscalQuarter = EarningsPerEightHourWorkday * DAYS_PER_FISCAL_QUARTER;
+        EarningsPerHalfYear = EarningsPerFiscalQuarter * 2;
+        EarningsPerYear = EarningsPerHour * WORKDAYS_PER_YEAR * 8;
+        EarningsPerThreeYears = EarningsPerYear * 3;
+        EarningsPerFiveYears = EarningsPerYear * 5;
+        EarningsPerTenYears = EarningsPerYear * 10;
+        EarningsPerFifteenYears = EarningsPerYear * 15;
+        EarningsPerTwentyYears = EarningsPerYear * 20;
+        EarningsPerThirtyYears = EarningsPerYear * 30;
+        EarningsPerFiftyYears = EarningsPerYear * 50;
+    }
 }
 
 class Program
@@ -106,8 +128,7 @@ class Program
 
         // (2) User enters salary or hourly pay
         profile.SetSalaryOrHourly();
-        // Console.WriteLine($"\n\nSalary: {profile.AnnualSalary}");
-        // Console.WriteLine($"Hourly: {profile.HourlyPay}");
+        profile.CalculateRates();
 
         // (3) Calculations occur to provide a breakdown of the rates at which you are earning money
         // per millisecond
