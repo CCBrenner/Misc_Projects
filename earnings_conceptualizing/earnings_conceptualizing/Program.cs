@@ -6,6 +6,7 @@ class EarningsProfile
     {
 
     }
+
     const int WORKDAYS_PER_YEAR = 260;
     const int FISCAL_QUARTERS = 4;
     const int DAYS_PER_FISCAL_QUARTER = WORKDAYS_PER_YEAR / FISCAL_QUARTERS;
@@ -20,19 +21,19 @@ class EarningsProfile
     public decimal EarningsPerSecond;
     public decimal EarningsPerMinute;
     public decimal EarningsPerHour;
-    public decimal EarningsPerEightHourWorkday;  // per 8 - hour day
-    public decimal EarningsPerFiveDayWorkweek;  // per stnd.5-day work week
-    public decimal EarningsPerFourWeeks;  // per 4 wks.
-    public decimal EarningsPerFiscalQuarter;  // per fiscal quarter (3 months or 65 workdays)
-    public decimal EarningsPerHalfYear;  // per half-year (semi-annually)
-    public decimal EarningsPerYear;  // per year (annually)
-    public decimal EarningsPerThreeYears;  // per 3 years
-    public decimal EarningsPerFiveYears;  // per 5 years
-    public decimal EarningsPerTenYears;  // per 10 years
-    public decimal EarningsPerFifteenYears;  // per 15 years
-    public decimal EarningsPerTwentyYears;  // per 20 years
-    public decimal EarningsPerThirtyYears;  // per 30 years
-    public decimal EarningsPerFiftyYears;  // per 50 years
+    public decimal EarningsPerEightHourWorkday;
+    public decimal EarningsPerFiveDayWorkweek;
+    public decimal EarningsPerFourWeeks;
+    public decimal EarningsPerFiscalQuarter;
+    public decimal EarningsPerHalfYear;
+    public decimal EarningsPerYear;  // annually
+    public decimal EarningsPerThreeYears;
+    public decimal EarningsPerFiveYears;
+    public decimal EarningsPerTenYears;
+    public decimal EarningsPerFifteenYears;
+    public decimal EarningsPerTwentyYears;
+    public decimal EarningsPerThirtyYears;
+    public decimal EarningsPerFiftyYears;
     public void AreEarningsSalaryOrHourly()
     {
         Console.Write("\nFirst, enter \"H\" if your pay is hourly and \"S\" if your pay is salary: ");
@@ -106,6 +107,28 @@ class EarningsProfile
         EarningsPerThirtyYears = EarningsPerYear * 30;
         EarningsPerFiftyYears = EarningsPerYear * 50;
     }
+    public void RenderRates()
+    {
+        Console.WriteLine("Here is the breakdown of your rates by various measurements of time: \n\n");
+        Console.WriteLine($"" +
+            $"per millisecond: \t${EarningsPerMillisecond.ToString("#,##0.0000000000")}\n" +
+            $"per second: \t\t${EarningsPerSecond.ToString("#,##0.000000")}\n" +
+            $"per minute: \t\t${EarningsPerMinute.ToString("#,##0.0000")}\n" +
+            $"per hour: \t\t${EarningsPerHour.ToString("#,##0.00")}\n" +
+            $"per 8-hour workday: \t${EarningsPerEightHourWorkday.ToString("#,##0.00")}\n" +
+            $"per 5-day workweek: \t${EarningsPerFiveDayWorkweek.ToString("#,##0.00")}\n" +
+            $"per 4 weeks: \t\t${EarningsPerFourWeeks.ToString("#,##0.00")}\n" +
+            $"per fiscal quarter: \t${EarningsPerFiscalQuarter.ToString("#,##0.00")}\n" +
+            $"per half year: \t\t${EarningsPerHalfYear.ToString("#,##0.00")}\n" +
+            $"per year (annually): \t${EarningsPerYear.ToString("#,##0.00")}\n" +
+            $"per 3 years: \t\t${EarningsPerThreeYears.ToString("#,##0.00")}\n" +
+            $"per 5 years: \t\t${EarningsPerFiveYears.ToString("#,##0.00")}\n" +
+            $"per 10 years: \t\t${EarningsPerTenYears.ToString("#,##0.00")}\n" +
+            $"per 15 years: \t\t${EarningsPerFifteenYears.ToString("#,##0.00")}\n" +
+            $"per 20 years: \t\t${EarningsPerTwentyYears.ToString("#,##0.00")}\n" +
+            $"per 30 years: \t\t${EarningsPerThirtyYears.ToString("#,##0.00")}\n" +
+            $"per 50 years: \t\t${EarningsPerFiftyYears.ToString("#,##0.00")}");
+    }
 }
 
 class Program
@@ -121,7 +144,9 @@ class Program
         EarningsProfile profile = new EarningsProfile();
 
         // Intro
-        Console.WriteLine("Welcome to Purchase Power Calculator! Here you can find out how your rate of dollars earned over time (your income) can give your a better sense of the cost of your purchases.");
+        Console.WriteLine("Welcome to Purchase Power Calculator!" +
+            "\n\nHere you can find out how your rate of dollars earned over time " +
+            "\n(your income) can give you a better sense of the cost of your purchases.");
 
         // (1) User chooses which how they are paid: salary or hourly
         profile.AreEarningsSalaryOrHourly();
@@ -131,23 +156,7 @@ class Program
         profile.CalculateRates();
 
         // (3) Calculations occur to provide a breakdown of the rates at which you are earning money
-        // per millisecond
-        // per second
-        // per minute
-        // per hour
-        // per 8 - hour day
-        // per stnd.5-day work week
-        // per 4 wks.
-        // per fiscal quarter (3 months or 65 workdays)
-        // per half-year (semi-annually)
-        // per year (annually)
-        // per 3 years
-        // per 5 years
-        // per 10 years
-        // per 15 years
-        // per 20 years
-        // per 30 years
-        // per 50 years
+        profile.RenderRates();
 
         // (4) On a loop, user gets to enter amounts of purchases they wish to make and the returned result shows how much time it took them to earn the purchasing power for that item (or how much time it will take them to earn that money back - the same number (in time worked/to work) either way)
     }
