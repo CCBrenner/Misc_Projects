@@ -109,7 +109,7 @@ class EarningsProfile
     }
     public void RenderRates()
     {
-        Console.WriteLine("Here is the breakdown of your rates by various measurements of time: \n\n");
+        Console.WriteLine("Here is the breakdown of your rates by various measurements of time: \n");
         Console.WriteLine($"" +
             $"per millisecond: \t${EarningsPerMillisecond.ToString("#,##0.0000000000")}\n" +
             $"per second: \t\t${EarningsPerSecond.ToString("#,##0.000000")}\n" +
@@ -128,6 +128,50 @@ class EarningsProfile
             $"per 20 years: \t\t${EarningsPerTwentyYears.ToString("#,##0.00")}\n" +
             $"per 30 years: \t\t${EarningsPerThirtyYears.ToString("#,##0.00")}\n" +
             $"per 50 years: \t\t${EarningsPerFiftyYears.ToString("#,##0.00")}");
+    }
+    public decimal DollarsToHours(decimal dollars)
+    {
+        return dollars / EarningsPerHour;
+    }
+    public void RenderTimeConversions(decimal timeInHours)
+    {
+        Console.WriteLine($"\n" +
+            $"cost: {Decimal.Round((timeInHours/60/60), 4)} seconds\n" +
+            $"cost: {Decimal.Round((timeInHours/60), 4)} minutes\n" +
+            $"cost: {Decimal.Round(timeInHours, 4)} hours\n" +
+            $"cost: {Decimal.Round((timeInHours/8), 4)} eight-hour workdays\n" +
+            $"cost: {Decimal.Round((timeInHours /8/5), 4)} five-day workweeks");
+    }
+    public void PriceChecker()
+    {
+        Console.WriteLine("\nThe remainder of this program is dedicated to telling you how much time it took \n" +
+            "you to earn the purchasing power of a given purchase (or how much time \n" +
+            "it will take you to earn the purchasng power back again).");
+        
+        while (true)
+        {
+            decimal timeInHours;
+            while (true)
+            {
+                Console.Write("\nHow much is the purchase you are considering to make (in US dollars)?: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal price))
+                {
+                    timeInHours = DollarsToHours(price);
+                    break;
+                }
+            }
+            RenderTimeConversions(timeInHours);
+            char keepGoing;
+            while (true)
+            {
+                Console.Write("\nWould you like to view the time cost of another purchase? Press \"Y\" to continue and \"N\" to end the program: ");
+                keepGoing = char.ToUpper(Console.ReadKey().KeyChar);
+                if (keepGoing == 'N' || keepGoing == 'Y')
+                    break;
+            }
+            if (keepGoing == 'N') break;
+            Console.WriteLine();
+        }
     }
 }
 
@@ -152,12 +196,19 @@ class Program
         profile.AreEarningsSalaryOrHourly();
 
         // (2) User enters salary or hourly pay
+
         profile.SetSalaryOrHourly();
+
+        // (2.1) EarningsProfile properties are calculated for rates based on different time intervals
         profile.CalculateRates();
 
         // (3) Calculations occur to provide a breakdown of the rates at which you are earning money
         profile.RenderRates();
 
         // (4) On a loop, user gets to enter amounts of purchases they wish to make and the returned result shows how much time it took them to earn the purchasing power for that item (or how much time it will take them to earn that money back - the same number (in time worked/to work) either way)
+        profile.PriceChecker();
+
+        // Exit
+        Console.WriteLine($"\n\nThank you for using Purchase Power Calculator!");
     }
 }
