@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Collyn B - VotP\\source\\repos\\fiscal\\earnings_conceptualizing\\earnings_conceptualizing\\earnings_conceptualizing.csproj",
+      "projectUniqueName": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\earnings_conceptualizing\\earnings_conceptualizing\\earnings_conceptualizing.csproj",
       "projectName": "earnings_conceptualizing",
-      "projectPath": "C:\\Users\\Collyn B - VotP\\source\\repos\\fiscal\\earnings_conceptualizing\\earnings_conceptualizing\\earnings_conceptualizing.csproj",
+      "projectPath": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\earnings_conceptualizing\\earnings_conceptualizing\\earnings_conceptualizing.csproj",
       "packagesPath": "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Collyn B - VotP\\source\\repos\\fiscal\\earnings_conceptualizing\\earnings_conceptualizing\\obj\\",
+      "outputPath": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\earnings_conceptualizing\\earnings_conceptualizing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Collyn B - VotP\\AppData\\Roaming\\NuGet\\NuGet.Config",

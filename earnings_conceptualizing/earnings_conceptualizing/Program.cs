@@ -36,12 +36,22 @@ class Program
 
         // (1) User chooses which how they are paid: salary or hourly
         Console.WriteLine("Welcome to Purchase Power Calculator! Here you can find out how your rate of dollars earned over time (your income) can give your a better sense of the cost of your purchases.");
-        Console.WriteLine("\nFirst, is your pay hourly or salary?");
-        string salaryOrHourly = Console.ReadLine();
-        if (bool.TryParse(salaryOrHourly, out bool IsSalary))
+        Console.WriteLine("\nFirst, enter \"H\" if your pay is hourly and \"S\" if your pay is salary: ");
+        while (true)
         {
-            profile.IsSalary = IsSalary;
+            char salaryOrHourly = Char.ToUpper(Console.ReadKey(true).KeyChar);
+            if (salaryOrHourly == 'H')
+            {
+                profile.IsSalary = false;
+                break;
+            }
+            else if (salaryOrHourly == 'S')
+            {
+                profile.IsSalary = true;
+                break;
+            }
         }
+        Console.WriteLine(profile.IsSalary); ;
 
         // (2) User enters salary or hourly pay
         
