@@ -10,15 +10,79 @@ class EarningsProfile
     const int FISCAL_QUARTERS = 4;
     const int DAYS_PER_FISCAL_QUARTER = WORKDAYS_PER_YEAR / FISCAL_QUARTERS;
 
-    public bool IsSalary { get; set; }
+    public bool IsSalary { get; private set; }
 
     public decimal AnnualSalary { get; private set; }
     public decimal HourlyPay { get; private set; }
 
-    public decimal SalaryEarningsPerHour
+
+    public decimal EarningsPerMillisecond;
+    public decimal EarningPerSecond;
+    public decimal EarningPerMinute;
+    public decimal EarningPerHour;
+    public decimal EarningsPerDay;  // per 8 - hour day
+    public decimal EarningsPerFiveDayWorkweek;  // per stnd.5-day work week
+    public decimal EarningsPerFourWeeks;  // per 4 wks.
+    public decimal EarningsPerFiscalQuarter;  // per fiscal quarter (3 months or 65 workdays)
+    public decimal EarningsPerHalfYear;  // per half-year (semi-annually)
+    public decimal EarningsPerYear;  // per year (annually)
+    public decimal EarningsPerThreeYears;  // per 3 years
+    public decimal EarningsPerFiveYears;  // per 5 years
+    public decimal EarningsPerTenYears;  // per 10 years
+    public decimal EarningsPerFifteenYears;  // per 15 years
+    public decimal EarningsPerTwentyYears;  // per 20 years
+    public decimal EarningsPerThirtyYears;  // per 30 years
+    public decimal EarningsPerFiftyYears;  // per 50 years
+    public void AreEarningsSalaryOrHourly()
     {
-        get { return SalaryEarningsPerHour; }
-        set { SalaryEarningsPerHour = value; }
+        Console.Write("\nFirst, enter \"H\" if your pay is hourly and \"S\" if your pay is salary: ");
+        while (true)
+        {
+            char salaryOrHourly = Char.ToUpper(Console.ReadKey(true).KeyChar);
+            if (salaryOrHourly == 'H')
+            {
+                IsSalary = false;
+                Console.WriteLine("\nHourly");
+                break;
+            }
+            else if (salaryOrHourly == 'S')
+            {
+                IsSalary = true;
+                Console.WriteLine("\nSalary");
+                break;
+            }
+        }
+    }
+    public void SetSalaryOrHourly()
+    {
+        if (IsSalary)
+        {
+            while (true)
+            {
+                Console.Write("\nHow much do you make per year (in US dollars)?: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal salary))
+                {
+                    AnnualSalary = salary;
+                    Console.Write($"${AnnualSalary} salary");
+                    break;
+                }
+                Console.WriteLine("Please enter a valid numeric monetary amount (without the dollar sign).");
+            }
+        }
+        else
+        {
+            while (true)
+            {
+                Console.Write("\nHow much do you make per hour (in US dollars)?: ");
+                if (decimal.TryParse(Console.ReadLine(), out decimal hourly))
+                {
+                    HourlyPay = hourly;
+                    Console.Write($"${HourlyPay}/hour");
+                    break;
+                }
+                Console.WriteLine("Please enter a valid numeric monetary amount (without the dollar sign).");
+            }
+        }
     }
 }
 
@@ -34,27 +98,17 @@ class Program
         // Initialize
         EarningsProfile profile = new EarningsProfile();
 
-        // (1) User chooses which how they are paid: salary or hourly
+        // Intro
         Console.WriteLine("Welcome to Purchase Power Calculator! Here you can find out how your rate of dollars earned over time (your income) can give your a better sense of the cost of your purchases.");
-        Console.WriteLine("\nFirst, enter \"H\" if your pay is hourly and \"S\" if your pay is salary: ");
-        while (true)
-        {
-            char salaryOrHourly = Char.ToUpper(Console.ReadKey(true).KeyChar);
-            if (salaryOrHourly == 'H')
-            {
-                profile.IsSalary = false;
-                break;
-            }
-            else if (salaryOrHourly == 'S')
-            {
-                profile.IsSalary = true;
-                break;
-            }
-        }
-        Console.WriteLine(profile.IsSalary); ;
+
+        // (1) User chooses which how they are paid: salary or hourly
+        profile.AreEarningsSalaryOrHourly();
 
         // (2) User enters salary or hourly pay
-        
+        profile.SetSalaryOrHourly();
+        // Console.WriteLine($"\n\nSalary: {profile.AnnualSalary}");
+        // Console.WriteLine($"Hourly: {profile.HourlyPay}");
+
         // (3) Calculations occur to provide a breakdown of the rates at which you are earning money
         // per millisecond
         // per second
