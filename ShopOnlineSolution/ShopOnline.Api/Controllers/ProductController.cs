@@ -10,33 +10,35 @@ namespace ShopOnline.Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository productRespository;
+        private readonly IProductRepository productRepository;
 
         public ProductController(IProductRepository productRespository)
         {
-            this.productRespository = productRespository;
+            this.productRepository = productRespository;
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetItems()
         {
             try
             {
-                var products = await this.productRespository.GetItems();
-                var productCategories = await this.productRespository.GetItems();
-
-                if (products == null || productCategories == null)
-                {
-                    return NotFound();
+                var products = await this.productRepository.GetItems();
+                var productCategories = await this.productRepository.GetCategories();
+                if (products == null && productCategories == null)
+                { 
+                   return NotFound();
                 }
                 else
                 {
-                    IEnumerable<ProductDto> productDtos = products.ConvertToDto((IEnumerable<Entities.ProductCategory>)productCategories);
+                    var productDtos = products.ConvertToDto(productCategories);
+
                     return Ok(productDtos);
                 }
             }
             catch (Exception)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data from the database.");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                                $"Error retrieving data from the database");
+               
             }
         }
     }

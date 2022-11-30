@@ -102,6 +102,8 @@ namespace ShopOnline.Api.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Products");
 
                     b.HasData(
@@ -403,6 +405,17 @@ namespace ShopOnline.Api.Migrations
                             Id = 2,
                             UserName = "Sarah"
                         });
+                });
+
+            modelBuilder.Entity("ShopOnline.Api.Entities.Product", b =>
+                {
+                    b.HasOne("ShopOnline.Api.Entities.ProductCategory", "ProductCategory")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductCategory");
                 });
 #pragma warning restore 612, 618
         }

@@ -19,7 +19,7 @@ namespace ShopOnline.Api.Extensions
                         ImageURL = product.ImageURL,
                         Price = product.Price,
                         Qty = product.Qty,
-                        CategoryID = product.CategoryId,
+                        CategoryId = product.CategoryId,
                         CategoryName = productCategory.Name
                     }).ToList();
         }

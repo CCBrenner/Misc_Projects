@@ -2,7 +2,7 @@
 
 namespace ShopOnline.Web.Services.Contracts
 {
-    public class IProductService
+    public interface IProductService
     {
         Task<IEnumerable<ProductDto>> GetItems();
     }
