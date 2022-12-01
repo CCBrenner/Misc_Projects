@@ -7,24 +7,19 @@ namespace ShopOnline.Api.Respositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ShopOnlineDbContext shopOnlineDbContext;
-
         public ProductRepository(ShopOnlineDbContext shopOnlineDbContext)
         {
             this.shopOnlineDbContext = shopOnlineDbContext;
         }
+        private readonly ShopOnlineDbContext shopOnlineDbContext;
         public async Task<IEnumerable<ProductCategory>> GetCategories() => 
             await this.shopOnlineDbContext.ProductCategories.ToListAsync();
 
-        public Task<ProductCategory> GetCategory(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<ProductCategory> GetCategory(int id) =>
+            await shopOnlineDbContext.ProductCategories.SingleOrDefaultAsync(c => c.Id == id);
 
-        public Task<Product> GetItem(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<Product> GetItem(int id) =>
+            await shopOnlineDbContext.Products.FindAsync(id);
 
         public async Task<IEnumerable<Product>> GetItems() =>
             await this.shopOnlineDbContext.Products.ToListAsync();
