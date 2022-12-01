@@ -10,12 +10,11 @@ namespace ShopOnline.Api.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository productRepository;
-
         public ProductController(IProductRepository productRespository)
         {
             this.productRepository = productRespository;
         }
+        private readonly IProductRepository productRepository;
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetItems()
         {

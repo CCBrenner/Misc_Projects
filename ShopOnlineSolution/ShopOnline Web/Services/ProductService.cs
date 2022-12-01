@@ -45,7 +45,7 @@ namespace ShopOnline.Web.Services
         {
             try
             {
-                var response = await httpClient.GetAsync($"api/Product/{id}");
+                var response = await httpClient.GetAsync($"api/Product/1000");
 
                 if (response.IsSuccessStatusCode)
                 {
