@@ -9,14 +9,15 @@
     }
   },
   "profiles": {
+    /*
     "ShopOnline.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:61312",
+      "applicationUrl": "http://localhost:44340",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
-    },
+    },*/
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,

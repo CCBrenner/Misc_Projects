@@ -23,8 +23,8 @@ namespace ShopOnline.Api.Extensions
                         CategoryName = productCategory.Name
                     }).ToList();
         }
-        public static ProductDto ConvertToDto(this Product product,
-            ProductCategory productCategory)
+        public static ProductDto ConvertToDto(this Product product, 
+                                                   ProductCategory productCategory)
         {
             return new ProductDto
             {

@@ -40,7 +40,7 @@ namespace ShopOnline.Api.Controllers
                
             }
         }
-        [HttpGet("{id:int")]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<ProductDto>> GetItem(int id)
         {
             try
