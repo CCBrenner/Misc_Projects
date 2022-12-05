@@ -16,10 +16,8 @@ namespace ShopOnline.Api.Respositories
         public async Task<IEnumerable<ProductCategory>> GetCategories() => 
             await this.shopOnlineDbContext.ProductCategories.ToListAsync();
 
-        public Task<ProductCategory> GetCategory(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<ProductCategory> GetCategory(int id) =>
+            await shopOnlineDbContext.ProductCategories.FindAsync(id);
 
         public async Task<Product> GetItem(int id) =>
             await shopOnlineDbContext.Products.FindAsync(id);
