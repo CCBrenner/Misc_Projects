@@ -21,5 +21,12 @@ namespace ShopOnline.Web.Pages
                 ErrorMsg = ex.Message;
             }
         }
+        protected IOrderedEnumerable<IGrouping<int, ProductDto>> GetGroupedProductsByCategory() =>
+            from product in Products
+            group product by product.CategoryId into prodByCatGroup
+            orderby prodByCatGroup.Key
+            select prodByCatGroup;
+        protected string GetCategoryName(IGrouping<int, ProductDto> groupedProductDtos) =>
+            groupedProductDtos.FirstOrDefault(prodGroup => prodGroup.CategoryId == groupedProductDtos.Key).CategoryName;
     }
 }
