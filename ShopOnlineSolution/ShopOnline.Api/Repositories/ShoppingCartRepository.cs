@@ -8,14 +8,10 @@ namespace ShopOnline.Api.Repositories
 {
     public class ShoppingCartRepository : IShoppingCartRepository
     {
-        private object shopOnlineDbContext;
-
-        public ShopOnlineDbContext ShopOnlineDbContext { get; }
-
-        public ShoppingCartRepository(ShopOnlineDbContext shopOnlineDbContext)
-        {
+        public ShoppingCartRepository(ShopOnlineDbContext shopOnlineDbContext) => 
             ShopOnlineDbContext = shopOnlineDbContext;
-        }
+        private ShopOnlineDbContext shopOnlineDbContext;
+        public ShopOnlineDbContext ShopOnlineDbContext { get; }
         private async Task<bool> CartItemExists(int cartId, int productId) =>
             await this.ShopOnlineDbContext.CartItems.AnyAsync(c => c.CartId == cartId &&
                                                                    c.ProductId == productId);
@@ -42,20 +38,18 @@ namespace ShopOnline.Api.Repositories
             return null;
         }
 
-        public async Task<CartItem> GetItem(int id)
-        {
-            return await (from cart in this.shopOnlineDbContext.Carts
-                         join cartItem in this.shopOnlineDbContext.CartItems
-                         on cart.Id equals cartItem.Id
-                         where cartItem.Id = id
-                         select new CartItem
-                         {
-                             Id = cartItem.Id,
-                             ProductId = cartItem.ProductId,
-                             Qty = cartItem.Qty,
-                             CartId = cartItem.CartId,
-                         }).SingleOrDefaultAsync();
-        }
+        public async Task<CartItem> GetItem(int id) => 
+            await (from cart in this.shopOnlineDbContext.Carts
+                   join cartItem in this.shopOnlineDbContext.CartItems
+                   on cart.Id equals cartItem.Id
+                   where cartItem.Id == id
+                   select new CartItem
+                       {
+                           Id = cartItem.Id,
+                           ProductId = cartItem.ProductId,
+                           Qty = cartItem.Qty,
+                           CartId = cartItem.CartId,
+                       }).SingleOrDefaultAsync();
 
         public async Task<IEnumerable<CartItem>> GetItems(int userId)
         {
