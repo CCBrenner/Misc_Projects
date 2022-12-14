@@ -6,13 +6,13 @@ namespace ShopOnline.Web.Pages
 {
     public class ShoppingCartBase : ComponentBase
     {
+        [Parameter]
         public int Id { get; set; }
         [Inject]
         public IShoppingCartService ShoppingCartService { get; set; }
         [Inject]
         public IProductService ProductService { get; set; }
         public IEnumerable<CartItemDto> ShoppingCartItems { get; set; }
-        public NavigationManager NavigationManager { get; set; }
         public string ErrorMessage { get; set; }
         public string TotalPrice { get; set; }
         public int TotalQuantity { get; set; }
@@ -21,7 +21,6 @@ namespace ShopOnline.Web.Pages
             try
             {
                 ShoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
-                NavigationManager.NavigateTo("/ShoppingCart");
             }
             catch (Exception ex)
             {

@@ -68,7 +68,7 @@ namespace ShopOnline.Api.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<CartItem> DeleteItem(int id)
+        public async Task<CartItem> DeleteItem(int id)
         {
             throw new NotImplementedException();
         }
