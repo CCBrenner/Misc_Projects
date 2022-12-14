@@ -9,9 +9,9 @@ namespace ShopOnline.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShopOnlineController : ControllerBase
+    public class ShoppingCartController : ControllerBase
     {
-        public ShopOnlineController(IShoppingCartRepository shoppingCartRepository,
+        public ShoppingCartController(IShoppingCartRepository shoppingCartRepository,
                                     IProductRepository productRepository)
         {
             ShoppingCartRepository = shoppingCartRepository;

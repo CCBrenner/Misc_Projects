@@ -6,6 +6,7 @@ namespace ShopOnline.Web.Pages
 {
     public class ProductDetailsBase : ComponentBase
     {
+        [Parameter]
         public int Id { get; set; }
 
         [Inject]
