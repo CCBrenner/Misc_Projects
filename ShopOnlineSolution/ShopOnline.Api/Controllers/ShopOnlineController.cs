@@ -20,7 +20,9 @@ namespace ShopOnline.Api.Controllers
 
         public IShoppingCartRepository ShoppingCartRepository { get; }
         public IProductRepository ProductRepository { get; }
+
         [HttpGet]
+        [Route("{userId}/GetItems")]
         public async Task<ActionResult<IEnumerable<CartItemDto>>> GetItems(int userId)
         {
             try
@@ -47,6 +49,7 @@ namespace ShopOnline.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<CartItemDto>> GetItem(int id)
         {
@@ -72,6 +75,7 @@ namespace ShopOnline.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
         }
+
         [HttpPost]
         public async Task<ActionResult<CartItemDto>> PostItem([FromBody] CartItemToAddDto cartItemToAddDto)
         {
@@ -93,9 +97,9 @@ namespace ShopOnline.Api.Controllers
 
                 var newCartItemDto = newCartItem.ConvertToDto(product);
 
+                // this action method returns location of the added resource in
+                // a response, which is standard procedure w/POST methods
                 return CreatedAtAction(nameof(GetItem), new { id = newCartItemDto.Id }, newCartItemDto);
-
-
             }
             catch (Exception ex)
             {

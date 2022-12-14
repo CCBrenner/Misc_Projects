@@ -24,7 +24,17 @@ else
                     @Product.Price.ToString("C")&nbsp;(@Product.Qty items in stock)
                 </b>
             </p>
+            <div>
+                <div>
+                <button class="btn btn-success"
+                    @onclick ="@(async () => await (AddToCart_Click(new CartItemToAddDto{
+                        CartId = 1,
+                        ProductId = 2,
+                        Qty = 1
+                    })))"
+                    ><b>Add to Cart</b></button>
+                </div>
+            </div>
         </div>
-
     </div>
 }
