@@ -28,8 +28,8 @@ else
                 <div>
                 <button class="btn btn-success"
                     @onclick ="@(async () => await (AddToCart_Click(new CartItemToAddDto{
-                        CartId = 1,
-                        ProductId = 2,
+                        CartId = HardCoded.UserId,
+                        ProductId = Product.Id,
                         Qty = 1
                     })))"
                     ><b>Add to Cart</b></button>
