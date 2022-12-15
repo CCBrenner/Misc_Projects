@@ -36,7 +36,7 @@ namespace ShopOnline.Api.Controllers
 
                 var products = await this.ProductRepository.GetItems();
 
-                if(products == null)
+                if (products == null)
                 {
                     throw new Exception("No product exists in the system");
                 }
@@ -104,6 +104,27 @@ namespace ShopOnline.Api.Controllers
             catch (Exception ex)
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult<CartItemDto>> DeleteItem(int id)
+        {
+            try
+            {
+                var cartItem = await this.ShoppingCartRepository.DeleteItem(id);
+                if (cartItem == null) return NotFound();
+
+                var product = await this.ProductRepository.GetItem(cartItem.ProductId);
+                if (product == null) return NotFound();
+
+                var cartItemDto = cartItem.ConvertToDto(product);
+                return Ok(cartItemDto);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

@@ -27,17 +27,25 @@ namespace ShopOnline.Web.Pages
                 ErrorMessage = ex.Message;
             }
         }
-        protected void UpdateQty_Input(int Id)
+        protected void UpdateQty_Input(int id)
         {
             throw new NotImplementedException();
         }
-        protected void UpdateQtyCartItem_Click(int Id, int Qty)
+        protected void UpdateQtyCartItem_Click(int id, int qty)
         {
             throw new NotImplementedException();
         }
-        protected void DeleteCartItem_Click(int Id)
+        protected void DeleteCartItem_Click(int id)
         {
-            throw new NotImplementedException();
+            var cartItemDto = ShoppingCartService.DeleteItem(id);
+            if (cartItemDto != null) RemoveCartItem(id);
+        }
+        private void RemoveCartItem(int id)
+        {
+            var cartItemDto = ShoppingCartItems.FirstOrDefault(x => x.Id == id);  // Return CartItemDto having given Id property
+            List<CartItemDto> cartItemsList = ShoppingCartItems.ToList();
+            cartItemsList.Remove(cartItemDto);
+            ShoppingCartItems = cartItemsList;
         }
     }
 }
