@@ -954,3 +954,7 @@ C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnlin
 C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnline Web\obj\Debug\net6.0\build-gz\OmVApI81.gz
 C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnline Web\obj\Debug\net6.0\build-gz\meif54RL.gz
 C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnline Web\obj\Debug\net6.0\scopedcss\Pages\DisplayProducts.razor.rz.scp.css
+C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnline Web\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll
+C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnline Web\bin\Debug\net6.0\wwwroot\_framework\Newtonsoft.Json.dll.gz
+C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnline Web\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Collyn B - VotP\source\repos\misc_projects\ShopOnlineSolution\ShopOnline Web\obj\Debug\net6.0\build-gz\BYIfw2in.gz

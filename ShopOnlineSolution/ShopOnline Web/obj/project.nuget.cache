@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Kw4AhIdwIUj4eYWt8ddIOz+YgkNkq9DMWLYKv4wz4JQg83dX80m3F/felhMBlGz5BM1YuQZQK1t7DGf8no4DhA==",
+  "dgSpecHash": "ll23ib7+weqi7zqD8m3dxUtvbALPtIGkxCUUUYzsXVbaIS2edkO/IRelVMyuZ2/y/A+j4QKcCcpH/WaQtxlRcg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\ShopOnlineSolution\\ShopOnline Web\\ShopOnline.Web.csproj",
   "expectedPackageFiles": [
@@ -59,6 +59,7 @@
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\runtime.any.system.globalization\\4.3.0\\runtime.any.system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\runtime.any.system.io\\4.3.0\\runtime.any.system.io.4.3.0.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\runtime.any.system.reflection\\4.3.0\\runtime.any.system.reflection.4.3.0.nupkg.sha512",
