@@ -33,7 +33,6 @@ namespace ShopOnline.Api.Repositories
                     return result.Entity;
                 }
             }
-
             return null;
         }
         

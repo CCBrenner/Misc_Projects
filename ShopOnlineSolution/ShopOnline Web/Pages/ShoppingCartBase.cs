@@ -21,6 +21,7 @@ namespace ShopOnline.Web.Pages
             try
             {
                 ShoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
+                CalculateCartSumaryTotals();
             }
             catch (Exception ex)
             {
@@ -31,7 +32,7 @@ namespace ShopOnline.Web.Pages
         {
             throw new NotImplementedException();
         }
-        protected async void UpdateQtyCartItem_Click(int id, int qty)
+        protected void UpdateQtyCartItem_Click(int id, int qty)
         {
             try
             {
@@ -42,7 +43,11 @@ namespace ShopOnline.Web.Pages
                         CartItemId = id,
                         Qty = qty,
                     };
-                    var returnedUpdateItemDto = await this.ShoppingCartService.UpdateQty(updateItemDto);
+                    if (this.ShoppingCartService.UpdateQty(updateItemDto) != null)
+                    {
+                        UpdateItemTotalPrice(id);
+                        CalculateCartSumaryTotals();
+                    }
                 }
                 else
                 {
@@ -61,15 +66,34 @@ namespace ShopOnline.Web.Pages
         }
         protected void DeleteCartItem_Click(int id)
         {
-            var cartItemDto = ShoppingCartService.DeleteItem(id);
-            if (cartItemDto != null) RemoveCartItem(id);
+            if (ShoppingCartService.DeleteItem(id) != null)
+                RemoveCartItem(id);
+            CalculateCartSumaryTotals();
         }
         private void RemoveCartItem(int id)
         {
-            var cartItemDto = ShoppingCartItems.FirstOrDefault(x => x.Id == id);  // Return CartItemDto having given Id property
+            var cartItemDto = GetCartItem(id);  // Return CartItemDto having given Id property
             List<CartItemDto> cartItemsList = ShoppingCartItems.ToList();
             cartItemsList.Remove(cartItemDto);
             ShoppingCartItems = cartItemsList;
+        }
+        private CartItemDto GetCartItem(int id) =>
+            ShoppingCartItems.FirstOrDefault(x => x.Id == id);
+        private void CalculateCartSumaryTotals()
+        {
+            SetTotalPrice();
+            SetTotalQuantity();
+        }
+        private void SetTotalPrice() => 
+            TotalPrice = this.ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
+        private void SetTotalQuantity() => 
+            TotalQuantity = this.ShoppingCartItems.Sum(p => p.Qty);
+        private void UpdateItemTotalPrice(int id)
+        {
+            var item = GetCartItem(id);
+
+            if (item != null)
+                item.TotalPrice = item.Price * item.Qty;
         }
     }
 }
