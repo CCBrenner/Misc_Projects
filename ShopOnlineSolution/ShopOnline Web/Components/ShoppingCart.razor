@@ -25,15 +25,18 @@ else {
                         <span>
                              Price: <b>@item.Price.ToString("C")</b>
                              <br/>
-                             <input type="number" @bind="@item.Qty" />
-                             <button class="btn btn-info btn-sm" @onclick="(() => UpdateQtyCartItem_Click(item.Id, item.Qty))">
-                                 Update Qty
-                             </button>
+                             <div class="row">
+                                <button @onclick="(()=>DeleteCartItem_Click(item.Id))"
+                                    class="btn btn-danger sm col-1"><i class="fa fa-trash"></i>
+                                </button>
+                                <input type="number" class="col-7 ms-2" @bind="@item.Qty" @oninput="(()=>UpdateQty_Input(item.Id))"/>
+                                <button data-itemId="@item.Id" 
+                                class="btn btn-info btn-sm updateQtyButton_visibility col-3 ms-2" style="display:none;"
+                                @onclick="(()=>UpdateQtyCartItem_Click(item.Id, item.Qty))">
+                                    UpdateQty
+                                </button>
+                             </div>
                         </span>
-                        <div>
-                            <button @onclick="(() => DeleteCartItem_Click(item.Id))"
-                            class="btn btn-danger sm"><i class="fa fa-trash"></i></button>
-                        </div>
                     </div>
                 </div>
             }

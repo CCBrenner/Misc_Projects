@@ -38,7 +38,7 @@ main[b-odzh4mtldn] {
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth)[b-odzh4mtldn] {
-        display: none;
+        /*display: none;*/
     }
 
     .top-row.auth[b-odzh4mtldn] {

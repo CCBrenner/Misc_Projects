@@ -21,6 +21,8 @@ a:hover img[b-r631xo10ml] {
 img[b-r631xo10ml] {
     transition: 0.5s ease-in-out;
 }
+/* /Pages/ShoppingCart.razor.rz.scp.css */
+
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-odzh4mtldn] {
     position: relative;
@@ -62,7 +64,7 @@ main[b-odzh4mtldn] {
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth)[b-odzh4mtldn] {
-        display: none;
+        /*display: none;*/
     }
 
     .top-row.auth[b-odzh4mtldn] {

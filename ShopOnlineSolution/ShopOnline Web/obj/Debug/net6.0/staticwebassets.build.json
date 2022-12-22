@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wribNd9UIHsTmS2bpxUXSq8oNhqJgd21dNzacffmo1A=",
+  "Hash": "YJ8aqw2zvEsjuV2ZHBUQX9XNcF8pnFA/xUqm5ABr+Dw=",
   "Source": "ShopOnline.Web",
   "BasePath": "/",
   "Mode": "Root",
@@ -8702,6 +8702,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\ShopOnlineSolution\\ShopOnline Web\\wwwroot\\js\\ShoppingCartFunctions.js",
+      "SourceId": "ShopOnline.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\ShopOnlineSolution\\ShopOnline Web\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "js/ShoppingCartFunctions.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\ShoppingCartFunctions.js"
     },
     {
       "Identity": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\ShopOnlineSolution\\ShopOnline Web\\wwwroot\\sample-data\\weather.json",

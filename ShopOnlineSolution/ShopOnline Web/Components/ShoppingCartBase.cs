@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using ShopOnline.Models.Dtos;
 using ShopOnline.Web.Services.Contracts;
 
@@ -12,6 +13,8 @@ namespace ShopOnline.Web.Pages
         public IShoppingCartService ShoppingCartService { get; set; }
         [Inject]
         public IProductService ProductService { get; set; }
+        [Inject]
+        public IJSRuntime Js { get; set; }
         public IEnumerable<CartItemDto> ShoppingCartItems { get; set; }
         public string ErrorMessage { get; set; }
         public string TotalPrice { get; set; }
@@ -28,11 +31,11 @@ namespace ShopOnline.Web.Pages
                 ErrorMessage = ex.Message;
             }
         }
-        protected void UpdateQty_Input(int id)
-        {
-            throw new NotImplementedException();
-        }
-        protected void UpdateQtyCartItem_Click(int id, int qty)
+        protected async void UpdateQty_Input(int id) =>
+            await Js.InvokeVoidAsync("MakeUpdateQtyButtonVisible", id, true);
+        private async void MakeQtyUpdateButtonVisible(int id, bool visible) =>
+            await Js.InvokeVoidAsync("MakeUpdateQtyButtonVisible", id, visible);
+        protected async void UpdateQtyCartItem_Click(int id, int qty)
         {
             try
             {
@@ -43,15 +46,16 @@ namespace ShopOnline.Web.Pages
                         CartItemId = id,
                         Qty = qty,
                     };
-                    if (this.ShoppingCartService.UpdateQty(updateItemDto) != null)
+                    if (ShoppingCartService.UpdateQty(updateItemDto) != null)
                     {
                         UpdateItemTotalPrice(id);
                         CalculateCartSumaryTotals();
+                        MakeQtyUpdateButtonVisible(id, false);
                     }
                 }
                 else
                 {
-                    var item = this.ShoppingCartItems.FirstOrDefault(i => i.Id == id);
+                    var item = ShoppingCartItems.FirstOrDefault(i => i.Id == id);
                     if (item != null)
                     {
                         item.Qty = 1;
@@ -72,22 +76,24 @@ namespace ShopOnline.Web.Pages
         }
         private void RemoveCartItem(int id)
         {
-            var cartItemDto = GetCartItem(id);  // Return CartItemDto having given Id property
+            var cartItemDto = GetCartItem(id);
             List<CartItemDto> cartItemsList = ShoppingCartItems.ToList();
             cartItemsList.Remove(cartItemDto);
             ShoppingCartItems = cartItemsList;
         }
         private CartItemDto GetCartItem(int id) =>
             ShoppingCartItems.FirstOrDefault(x => x.Id == id);
+
         private void CalculateCartSumaryTotals()
         {
             SetTotalPrice();
             SetTotalQuantity();
         }
         private void SetTotalPrice() => 
-            TotalPrice = this.ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
+            TotalPrice = ShoppingCartItems.Sum(p => p.TotalPrice).ToString("C");
         private void SetTotalQuantity() => 
-            TotalQuantity = this.ShoppingCartItems.Sum(p => p.Qty);
+            TotalQuantity = ShoppingCartItems.Sum(p => p.Qty);
+
         private void UpdateItemTotalPrice(int id)
         {
             var item = GetCartItem(id);
