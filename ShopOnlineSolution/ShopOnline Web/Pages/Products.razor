@@ -1,19 +1,20 @@
 ﻿@page "/"
-@inherits ProductsBase
 
-@if(Products == null && ErrorMsg == null)
+<PageTitle>Products - ShopOnline.Web</PageTitle>
+
+@if(ProductsList == null && ErrorMessage == null)
 {
     <DisplayLoading Content="Loading . . ."/>
 }
-else if (Products == null)
+else if (ProductsList == null)
 {
-    <h3>@ErrorMsg</h3>
+    <h3>@ErrorMessage</h3>
 }
 else
 {
     <h3 class="text-center">Products</h3>
 
-    @if(Products.Count() > 0)
+    @if(ProductsList.Count() > 0)
     {
         foreach(var prodGroup in GetGroupedProductsByCategory())
         {

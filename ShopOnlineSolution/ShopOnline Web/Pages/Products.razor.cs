@@ -4,25 +4,32 @@ using ShopOnline.Web.Services.Contracts;
 
 namespace ShopOnline.Web.Pages
 {
-    public class ProductsBase : ComponentBase
+    public partial class Products : ComponentBase
     {
         [Inject]
         public IProductService ProductService { get; set; }
-        public IEnumerable<ProductDto> Products { get; set; }
-        public string ErrorMsg { get; set; }
+        [Inject]
+        public IShoppingCartService ShoppingCartService { get; set; }
+        public IEnumerable<ProductDto> ProductsList { get; set; }
+        public string ErrorMessage { get; set; }
         protected override async Task OnInitializedAsync()
         {
             try
             {
-                Products = await ProductService.GetItems();
+                ProductsList = await ProductService.GetItems();
+
+                var shoppingCartItems = await ShoppingCartService.GetItems(HardCoded.UserId);
+                var totalQty = shoppingCartItems.Sum(i => i.Qty);
+
+                ShoppingCartService.RaiseEventOnShoppingCartChanged(totalQty);
             }
             catch (Exception ex)
             {
-                ErrorMsg = ex.Message;
+                ErrorMessage = ex.Message;
             }
         }
         protected IOrderedEnumerable<IGrouping<int, ProductDto>> GetGroupedProductsByCategory() =>
-            from product in Products
+            from product in ProductsList
             group product by product.CategoryId into prodByCatGroup
             orderby prodByCatGroup.Key
             select prodByCatGroup;
