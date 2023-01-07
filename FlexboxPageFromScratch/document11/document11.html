@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/1d8f2188a9.js" crossorigin="anonymous" defer></script>
+        <link rel="stylesheet" href="document11.css">
+        <script rel="script" src="document11.js" defer></script>
+        <title>💻 RWD with Buttons</title>
+        <!-- This static project uses Flexbox to create collapsable sections and functions using Flexboox and CSS
+        No Bootstrap is used in this project as can be seen above. -->
+    </head>
+    <body>
+
+        <div id="loadingScreen">Loading . . .</div>
+
+        <div id="overlayWindowContainer" onclick="closeWindow()">
+            <div class="overlayWindow">
+                <div class="closeWindowContainer">
+                    <div class="closeWindowButton" onclick="closeWindow()">X</div>
+                </div>
+                <div class="windowContent">
+                    <p>
+                        <br>This is just some text<br>to break up<br>some of the<br>monotony.<br><br>*Click the "X" above or the negative space outside the window to close.*
+                    </p>
+                </div>
+                <div><br><br></div>
+            </div>
+        </div>
+
+        <div class="navbar" id="navbar">
+            <div class="navitem">Admin</div>
+            <div class="navitem">Entries</div>
+            <div class="navitem">Scheduling</div>
+            <div class="navitem">Payroll</div>
+            <div class="navitem">Invoicing</div>
+            <div class="navitem">Reports</div>
+            <div class="navitem">Dashboards</div>
+        </div>
+        <div class="section2">
+            <div class="toolbar">
+                <div id="toolbutton1" class="toolbutton" onclick="setNavbar('toggle')"><i class="fa-solid fa-map-location-dot"></i></div>
+                <div id="toolbutton2" class="toolbutton" onclick="setSidebar('toggle')"><i class="fa-solid fa-bars"></i></div>
+                <div id="toolbutton3" class="toolbutton" onclick="setFooter('toggle')"><i class="fa-solid fa-shoe-prints"></i></div>
+                <div id="toolbutton4" class="toolbutton" onclick="setAll('toggle','toggle','toggle','toggle')">T*</div>
+                <div id="toolbutton5" class="toolbutton" onclick="setAll(true, true, true, true)">O*</div>
+                <div id="toolbutton6" class="toolbutton" onclick="setAll(false, false, false, false)">C*</div>
+                <div id="toolbutton7" class="toolbutton" onclick="setAll(true, false, false, true)">P1</div>
+                <div id="toolbutton8" class="toolbutton" onclick="setAll(false, true, true, false)">P2</div>
+                <div id="toolbutton9" class="toolbutton" onclick="setAll(false, false, true, false)">P3</div>
+                <div id="toolbutton10" class="toolbutton" onclick="setAll(true, true, true, false)">P4</div>
+            </div>
+            <div class="sidebar" id="sidebar">
+                <div id="sidebarbutton1" class="sidebarbutton" onclick="setFullOptions('toggle')">Full Options: true</div>
+                <div id="sidebarbutton2" class="sidebarbutton">
+                    <select name="areasSelector" id="areasSelector" onchange="areas()">
+                        <option value="A">1 Area</option>
+                        <option value="B">2 Areas</option>
+                        <option value="C">3 Areas</option>
+                        <option value="D">4 Areas</option>
+                        <option value="E">5 Areas</option>
+                        <option value="F">6 Areas</option>
+                        <option value="G">7 Areas</option>
+                        <option value="H">8 Areas</option>
+                    </select>
+                    &nbsp;
+                </div>
+                <div id="sidebarbutton3" class="sidebarbutton" onclick="areaOptionsDropdown()">Selected: 3 Areas</div>
+                <div id="areaOptions">
+                    <div class="areaOption" onclick="areas2(1)">1 Area</div>
+                    <div class="areaOption" onclick="areas2(2)">2 Areas</div>
+                    <div class="areaOption" onclick="areas2(3)">3 Areas</div>
+                    <div class="areaOption" onclick="areas2(4)">4 Areas</div>
+                    <div class="areaOption" onclick="areas2(5)">5 Areas</div>
+                    <div class="areaOption" onclick="areas2(6)">6 Areas</div>
+                    <div class="areaOption" onclick="areas2(7)">7 Areas</div>
+                    <div class="areaOption" onclick="areas2(8)">8 Areas</div>
+                </div>
+                <div id="sidebarbutton4" class="sidebarbutton" onclick="openWindow()">Open Overlay Window</div>
+                <div id="sidebarbutton5" class="sidebarbutton" onclick="resizeWindow()">Resize Window</div>
+                <div id="sidebarbutton6" class="sidebarbutton" onclick="">Switch Sides</div>
+            </div>
+            <div class="main-content">
+                <div class="section2A sec2" id="section2A">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2B sec2" id="section2B">
+                    <!-- <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>-->
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div> 
+                    <!-- <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p>
+                    <p>This is somsething that can be repeated.</p> -->
+                </div>
+                <div class="section2C sec2" id="section2C">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2D sec2" id="section2D">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2E sec2" id="section2E">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2F sec2" id="section2F">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2G sec2" id="section2G">
+                    <div class="areaBox"></div>
+                    <div class="areaBox"></div>
+                </div>
+                <div class="section2H sec2" id="section2H">
+                    <div class="areaBox"></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer" id="section3"><em>Created by Collyn Christopher Brenner</em></div>
+    </body>
+</html>

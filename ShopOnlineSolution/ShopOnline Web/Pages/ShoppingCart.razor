@@ -4,7 +4,7 @@
 
 @if (ShoppingCartItems == null && ErrorMessage == null)
 {
-    <DisplayLoading Content="Loading . . ."></DisplayLoading>
+    <DisplayLoading LoadingMessage="Loading Cart Items"></DisplayLoading>
 }
 else if (ErrorMessage != null)
 {

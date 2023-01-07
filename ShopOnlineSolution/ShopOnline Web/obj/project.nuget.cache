@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ll23ib7+weqi7zqD8m3dxUtvbALPtIGkxCUUUYzsXVbaIS2edkO/IRelVMyuZ2/y/A+j4QKcCcpH/WaQtxlRcg==",
+  "dgSpecHash": "gbWON8D94DRjS+bRpKEYHWB21IqYwu5WWuMtsbiIEW6f4bkzH1n48op6NuH2XjTKta1vEzPHiR3b8tyZuIjzxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Collyn B - VotP\\source\\repos\\misc_projects\\ShopOnlineSolution\\ShopOnline Web\\ShopOnline.Web.csproj",
+  "projectFilePath": "C:\\Users\\Collyn B - VotP\\Desktop\\Professional\\Software Engineering\\projects\\gh_clone_hosting\\misc_projects\\ShopOnlineSolution\\ShopOnline Web\\ShopOnline.Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -100,7 +100,7 @@
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
-    "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.5\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.5.nupkg.sha512"
+    "C:\\Users\\Collyn B - VotP\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\6.0.12\\microsoft.netcore.app.runtime.mono.browser-wasm.6.0.12.nupkg.sha512"
   ],
   "logs": []
 }

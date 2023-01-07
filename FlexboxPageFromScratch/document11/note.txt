@@ -1,0 +1,4 @@
+This copy/iteration was made to improve the naming of the variables in the css
+and move the methods into classes with shared respective data per the methods used.
+
+This has not been finished.
